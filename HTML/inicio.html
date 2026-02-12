@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santiago Aguirre - Página Personal</title>
+    <!-- Rutas corregidas -->
+    <link rel="stylesheet" href="../CSS/Style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Contenedor principal -->
+    <div class="container">
+        <!-- Menú hamburguesa -->
+        <div class="menu-toggle" id="menuToggle">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+
+        <!-- Menú desplegable -->
+        <nav class="sidebar" id="sidebar">
+            <div class="user-info" id="userInfo">
+                <div class="avatar">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <div class="user-details">
+                    <h3 id="userName">Invitado</h3>
+                    <p id="userStatus">No has iniciado sesión</p>
+                </div>
+            </div>
+            
+            <ul class="menu-list">
+                <li class="menu-item"><a href="#home" class="active"><i class="fas fa-home"></i> Inicio</a></li>
+                <li class="menu-item"><a href="#about"><i class="fas fa-user"></i> Acerca de</a></li>
+                <li class="menu-item"><a href="#portfolio"><i class="fas fa-briefcase"></i> Portafolio</a></li>
+                <li class="menu-item"><a href="#contact"><i class="fas fa-envelope"></i> Contacto</a></li>
+                <li class="menu-item" id="loginMenuItem">
+                    <a href="#" id="loginLink"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</a>
+                </li>
+                <li class="menu-item hidden" id="logoutMenuItem">
+                    <a href="#" id="logoutLink"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
+                </li>
+            </ul>
+            
+            <div class="accessibility-preview">
+                <h4>Previsualización de Accesibilidad</h4>
+                <div class="preview-options">
+                    <button class="preview-btn" data-theme="light">Claro</button>
+                    <button class="preview-btn" data-theme="dark">Oscuro</button>
+                    <button class="preview-btn" data-color="protanopia">Protanopia</button>
+                    <button class="preview-btn" data-color="deuteranopia">Deuteranopia</button>
+                    <button class="preview-btn" data-color="tritanopia">Tritanopia</button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Contenido principal -->
+        <main class="main-content" id="mainContent">
+            <!-- Partículas canvas -->
+            <canvas id="particleCanvas"></canvas>
+            
+            <!-- Presentación central -->
+            <section class="hero" id="home">
+                <h1 class="title" id="mainTitle">Santiago Aguirre Salinas</h1>
+                <p class="subtitle" id="subtitle">Estudiante de Ingeniería Informática y de Análisis y Desarrollo de Software</p>
+                
+                <div class="hero-content" id="heroContent">
+                    <p>Bienvenido a mi página personal. Soy un estudiante universitario y aquí encontrarás mi avance a lo largo de mi carrera.</p>
+                    <div class="cta-buttons">
+                        <button class="btn" id="viewWorkBtn">Ver mi avance</button>
+                        <button class="btn secondary" id="contactBtn">Contactar</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Panel de contenido (visible después de iniciar sesión) -->
+            <section class="content-panel hidden" id="contentPanel">
+                <div class="panel-header">
+                    <h2>Contenido Exclusivo</h2>
+                    <button class="close-panel" id="closePanel"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="panel-body">
+                    <h3>¡Bienvenido al área exclusiva!</h3>
+                    <p>Aquí encontrarás contenido especial disponible solo para usuarios registrados. Como estudiante de ingeniería, comparto aquí mis proyectos, investigaciones y logros académicos.</p>
+                    
+                    <p>En esta sección podrás acceder a:</p>
+                    <ul style="margin-left: 20px; margin-bottom: 20px;">
+                        <li>Proyectos de desarrollo de software</li>
+                        <li>Investigaciones académicas</li>
+                        <li>Certificaciones y logros</li>
+                        <li>Tutoriales y recursos exclusivos</li>
+                    </ul>
+                    
+                    <div class="exclusive-content">
+                        <div class="content-card">
+                            <i class="fas fa-chart-line"></i>
+                            <h4>Proyectos Recientes</h4>
+                            <p>Explora mis últimos trabajos en desarrollo web, aplicaciones móviles y sistemas informáticos.</p>
+                        </div>
+                        <div class="content-card">
+                            <i class="fas fa-lightbulb"></i>
+                            <h4>Ideas Innovadoras</h4>
+                            <p>Comparto mis ideas y proyectos innovadores en el campo de la tecnología y desarrollo de software.</p>
+                        </div>
+                        <div class="content-card">
+                            <i class="fas fa-rocket"></i>
+                            <h4>Próximos Lanzamientos</h4>
+                            <p>Conoce los proyectos que están en desarrollo y las tecnologías que estoy aprendiendo.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Botón de accesibilidad -->
+        <button class="accessibility-btn" id="accessibilityBtn" title="Opciones de Accesibilidad">
+            <i class="fas fa-universal-access"></i>
+        </button>
+
+        <!-- Panel de accesibilidad -->
+        <div class="accessibility-panel hidden" id="accessibilityPanel">
+            <div class="panel-header">
+                <h3>Opciones de Accesibilidad</h3>
+                <button class="close-btn" id="closeAccessibility"><i class="fas fa-times"></i></button>
+            </div>
+            
+            <div class="panel-body">
+                <div class="accessibility-option">
+                    <h4>Tamaño del Texto</h4>
+                    <div class="option-controls">
+                        <button class="size-btn" data-size="small">A-</button>
+                        <button class="size-btn active" data-size="medium">A</button>
+                        <button class="size-btn" data-size="large">A+</button>
+                        <button class="size-btn" data-size="xlarge">A++</button>
+                    </div>
+                </div>
+                
+                <div class="accessibility-option">
+                    <h4>Modo de Color</h4>
+                    <div class="option-controls">
+                        <button class="theme-btn active" data-theme="light">Claro</button>
+                        <button class="theme-btn" data-theme="dark">Oscuro</button>
+                        <button class="theme-btn" data-theme="auto">Automático</button>
+                    </div>
+                </div>
+                
+                <div class="accessibility-option">
+                    <h4>Ajustes para Daltonismo</h4>
+                    <div class="option-controls">
+                        <button class="color-btn active" data-color="normal">Normal</button>
+                        <button class="color-btn" data-color="protanopia">Protanopia</button>
+                        <button class="color-btn" data-color="deuteranopia">Deuteranopia</button>
+                        <button class="color-btn" data-color="tritanopia">Tritanopia</button>
+                    </div>
+                </div>
+                
+                <div class="accessibility-option">
+                    <h4>Contraste</h4>
+                    <div class="option-controls">
+                        <button class="contrast-btn active" data-contrast="normal">Normal</button>
+                        <button class="contrast-btn" data-contrast="high">Alto</button>
+                        <button class="contrast-btn" data-contrast="very-high">Muy Alto</button>
+                    </div>
+                </div>
+                
+                <div class="accessibility-option">
+                    <button class="reset-btn" id="resetAccessibility">Restablecer Ajustes</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal de inicio de sesión -->
+        <div class="modal hidden" id="loginModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Iniciar Sesión</h2>
+                    <button class="close-modal" id="closeLoginModal"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <label for="username">Correo Electrónico</label>
+                            <input type="email" id="username" name="username" required placeholder="ejemplo@email.com">
+                            <div class="error-message" id="usernameError"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="password">Contraseña</label>
+                            <input type="password" id="password" name="password" required placeholder="Mínimo 6 caracteres">
+                            <div class="error-message" id="passwordError"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" id="rememberMe" name="rememberMe">
+                                <span>Recordar mis datos</span>
+                            </label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <button type="submit" class="btn login-btn">Iniciar Sesión</button>
+                        </div>
+                        
+                        <div class="form-footer">
+                            <p>¿No tienes una cuenta? <a href="#" id="registerLink">Regístrate aquí</a></p>
+                        </div>
+                    </form>
+                    
+                    <div class="login-feedback hidden" id="loginFeedback">
+                        <div class="success-message">
+                            <i class="fas fa-check-circle"></i>
+                            <h3>¡Inicio de sesión exitoso!</h3>
+                            <p>Redirigiendo al contenido exclusivo...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Overlay para modales -->
+        <div class="overlay hidden" id="overlay"></div>
+    </div>
+
+    <!-- Scripts -->
+    <!-- Ruta corregida -->
+    <script src="../JS/app.js"></script>
+</body>
+</html>
