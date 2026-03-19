@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Nunito:wght@500;700&display=swap');
+
+:root {
+    --paper: #fff9f3;
+    --sunset: #f16529;
+    --sunset-strong: #be3a10;
+    --ink: #2f130a;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100dvh;
+    background-color: #FF9409;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg %3E%3Cpolygon fill='%23fba31d' points='800 100 0 200 0 800 1600 800 1600 200'/%3E%3Cpolygon fill='%23f7b031' points='800 200 0 400 0 800 1600 800 1600 400'/%3E%3Cpolygon fill='%23f4bc44' points='800 300 0 600 0 800 1600 800 1600 600'/%3E%3Cpolygon fill='%23f2c757' points='1600 800 800 400 0 800'/%3E%3Cpolygon fill='%23f0d069' points='1280 800 800 500 320 800'/%3E%3Cpolygon fill='%23efd77a' points='533.3 800 1066.7 800 800 600'/%3E%3Cpolygon fill='%23EEDE8B' points='684.1 800 914.3 800 800 700'/%3E%3C/g%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: 'Nunito', sans-serif;
+    color: var(--paper);
+}
+
+main {
+    width: min(920px, 92%);
+    margin: 2.2rem auto;
+}
+
+main h1 {
+    margin: 0;
+    text-align: center;
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 0.09rem;
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+}
+
+main img {
+    width: min(200px, 45vw);
+    display: block;
+    margin: 0.9rem auto;
+    border-radius: 20px;
+    border: 4px solid rgba(255, 255, 255, 0.55);
+    background-color: rgba(255, 255, 255, 0.25);
+    padding: 0.5rem;
+}
+
+main h4 {
+    text-align: center;
+    margin: 0 0 1.2rem;
+    font-size: 1.15rem;
+}
+
+.btn-home {
+    position: fixed;
+    left: 0.7rem;
+    top: 0.7rem;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    fill: #fff;
+    padding: 0.42rem;
+    opacity: 0.86;
+    transition: transform 0.24s ease, opacity 0.24s ease;
+}
+
+.btn-home:hover {
+    transform: scale(1.08);
+    opacity: 1;
+}
+
+menu {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.62rem;
+    margin: 0;
+    padding: 0;
+}
+
+menu a,
+menu a:visited {
+    background: rgba(255, 255, 255, 0.92);
+    color: var(--ink);
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 0.3rem 0.55rem 0.3rem 0.3rem;
+    transition: transform 0.22s ease, background-color 0.22s ease;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+menu a:hover {
+    background: #fff;
+    transform: translateX(6px);
+}
+
+menu a span {
+    width: 58px;
+    height: 58px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 1.42rem;
+    font-weight: 700;
+    margin-right: 0.68rem;
+    color: #fff;
+    background: linear-gradient(145deg, var(--sunset), var(--sunset-strong));
+}
+
+menu a aside {
+    display: flex;
+    flex-direction: column;
+    gap: 0.08rem;
+}
+
+menu a h4 {
+    margin: 0;
+    text-align: left;
+    font-size: 1.02rem;
+}
+
+menu a small {
+    margin: 0;
+    font-size: 0.75rem;
+    opacity: 0.86;
+}
+
+@media (max-width: 560px) {
+    menu a {
+        border-radius: 20px;
+        align-items: flex-start;
+    }
+
+    menu a span {
+        width: 52px;
+        height: 52px;
+    }
+}

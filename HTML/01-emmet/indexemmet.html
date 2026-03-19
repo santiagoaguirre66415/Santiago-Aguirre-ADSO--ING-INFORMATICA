@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01-Emmet | Neon Tech</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400&family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/css/01-emmet.css">
+</head>
+<body>
+    <a href="../index.html" class="btn-back">< RETURN</a>
+
+    <main>
+        <h1>EMMET</h1>
+        <div class="subtitle">workflow - markup & styling</div>
+        
+        <div class="img-wrap">
+            <img src="../../src/imgs/emmet.svg" alt="Emmet">
+        </div>
+
+        <div class="code-container">
+            <span class="label">Nesting Example:</span>
+            <div class="nesting-example">ul&gt;li&gt;a</div>
+            <span class="label">Resultado:</span>
+            <div class="result-box">
+                <span class="tag">&lt;ul&gt;</span><br>
+                &nbsp;&nbsp;<span class="tag">&lt;li&gt;&lt;a href=""&gt;&lt;/a&gt;&lt;/li&gt;</span><br>
+                <span class="tag">&lt;/ul&gt;</span>
+            </div>
+
+            <div class="examples-list">
+                <div class="example-item">
+                    <div class="example-title">1 - Emmet - Anidar Elementos</div>
+                    <div class="example-symbol">&gt;</div>
+                    <div class="example-input">section+header+nav</div>
+                    <div class="example-result">&lt;section&gt;&lt;/section&gt;
+&lt;header&gt;&lt;/header&gt;
+&lt;nav&gt;&lt;/nav&gt;</div>
+                </div>
+
+                <div class="example-item">
+                    <div class="example-title">2 - Emmet - Elementos Hermanos</div>
+                    <div class="example-symbol">+</div>
+                    <div class="example-input">ul&gt;li*3</div>
+                    <div class="example-result">&lt;ul&gt;
+  &lt;li&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;</div>
+                </div>
+
+                <div class="example-item">
+                    <div class="example-title">3 - Emmet - Repetir Elementos</div>
+                    <div class="example-symbol">*</div>
+                    <div class="example-input">div.contenedor</div>
+                    <div class="example-result">&lt;div class="contenedor"&gt;&lt;/div&gt;</div>
+                </div>
+
+                <div class="example-item">
+                    <div class="example-title">4 - Emmet - Atributo Clase</div>
+                    <div class="example-symbol">.</div>
+                    <div class="example-input">div.clase1.clase2.clasen</div>
+                    <div class="example-result">&lt;div class="clase1 clase2 clasen"&gt;&lt;/div&gt;</div>
+                </div>
+
+                <div class="example-item">
+                    <div class="example-title">5 - Emmet - Multiples Clases</div>
+                    <div class="example-symbol">...</div>
+                    <div class="example-input">nav#menu</div>
+                    <div class="example-result">&lt;nav id="menu"&gt;&lt;/nav&gt;</div>
+                </div>
+
+                <div class="example-item">
+                    <div class="example-title">6 - Emmet - Atributo Identificador</div>
+                    <div class="example-symbol">#</div>
+                    <div class="example-input">div{Lorem Ipsum Dolor}
+a{Click Aquí}</div>
+                    <div class="example-result">&lt;div&gt;Lorem Ipsum Dolor&lt;/div&gt;
+&lt;a href=""&gt;Click Aquí&lt;/a&gt;</div>
+                </div>
+
+                <div class="example-item">
+                    <div class="example-title">7 - Emmet - Adicionar Texto</div>
+                    <div class="example-symbol">{ }</div>
+                    <div class="example-input">a[href=www.google.com]</div>
+                    <div class="example-result">&lt;a href="www.google.com"&gt;&lt;/a&gt;</div>
+                </div>
+
+                <div class="example-item">
+                    <div class="example-title">8 - Emmet - Personalizar Atributos</div>
+                    <div class="example-symbol">[ ]</div>
+                    <div class="example-input">ul&gt;li.num$*3
+section&gt;article.sec$$$*3</div>
+                    <div class="example-result">&lt;ul&gt;
+  &lt;li class="num1"&gt;&lt;/li&gt;
+  &lt;li class="num2"&gt;&lt;/li&gt;
+  &lt;li class="num3"&gt;&lt;/li&gt;
+&lt;/ul&gt;</div>
+                </div>
+
+                <div class="example-item">
+                    <div class="example-title">9 - Emmet - Números Consecutivos</div>
+                    <div class="example-symbol">$</div>
+                    <div class="example-input">ul&gt;li.num$@-*3</div>
+                    <div class="example-result">&lt;ul&gt;
+  &lt;li class="num3"&gt;&lt;/li&gt;
+  &lt;li class="num2"&gt;&lt;/li&gt;
+  &lt;li class="num1"&gt;&lt;/li&gt;
+&lt;/ul&gt;</div>
+                </div>
+
+                <div class="example-item">
+                    <div class="example-title">10 - Emmet - Dirección Números Consecutivos</div>
+                    <div class="example-symbol">@-</div>
+                    <div class="example-input">ul&gt;li.num$@3*4</div>
+                    <div class="example-result">&lt;ul&gt;
+  &lt;li class="num3"&gt;&lt;/li&gt;
+  &lt;li class="num4"&gt;&lt;/li&gt;
+  &lt;li class="num5"&gt;&lt;/li&gt;
+  &lt;li class="num6"&gt;&lt;/li&gt;
+&lt;/ul&gt;</div>
+                </div>
+
+                <div class="example-item">
+                    <div class="example-title">11 - Emmet - Base Números Consecutivos</div>
+                    <div class="example-symbol">@n</div>
+                    <div class="example-input">section&gt;article&gt;div^p</div>
+                    <div class="example-result">&lt;section&gt;
+  &lt;article&gt;
+    &lt;div&gt;&lt;/div&gt;
+  &lt;/article&gt;
+  &lt;p&gt;&lt;/p&gt;
+&lt;/section&gt;</div>
+                </div>
+
+                <div class="example-item">
+                    <div class="example-title">12 - Emmet - Subir Nivel</div>
+                    <div class="example-symbol">^</div>
+                    <div class="example-input">(header&gt;nav)(section&gt;article)</div>
+                    <div class="example-result">&lt;header&gt;
+  &lt;nav&gt;&lt;/nav&gt;
+&lt;/header&gt;
+&lt;section&gt;
+  &lt;article&gt;&lt;/article&gt;
+&lt;/section&gt;</div>
+                </div>
+
+                <div class="example-item">
+                    <div class="example-title">13 - Emmet - Agrupar Elementos</div>
+                    <div class="example-symbol">( )</div>
+                    <div class="example-input">lorem
+lorem20
+lorem*5</div>
+                    <div class="example-result">Genera texto Lorem Ipsum automático.</div>
+                </div>
+
+                <div class="example-item">
+                    <div class="example-title">14 - Emmet - Generar “Lorem Ipsum Dolor”</div>
+                    <div class="example-symbol">lorem</div>
+                    <div class="example-input">html:xs
+html:xt
+html:4s
+html:4t
+html:5</div>
+                    <div class="example-result">Atajos para generar plantillas de documentos HTML/XHTML.</div>
+                </div>
+
+                <div class="example-item">
+                    <div class="example-title">15 - Emmet - Documents HTML</div>
+                    <div class="example-symbol">html:</div>
+                    <div class="example-input">html:xs
+html:xt
+html:4s
+html:4t
+html:5</div>
+                    <div class="example-result">Genera plantillas de documento HTML/XHTML predefinidas.</div>
+                </div>
+
+                <div class="example-item">
+                    <div class="example-title">16 - Emmet - Meta Tags</div>
+                    <div class="example-symbol">meta:</div>
+                    <div class="example-input">meta:vp</div>
+                    <div class="example-result">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</div>
+                </div>
+
+                <div class="example-item">
+                    <div class="example-title">17 - Emmet - Challenge</div>
+                    <div class="example-symbol">header&gt;nav</div>
+                    <div class="example-input">header#header&gt;nav.navbar.navbar-inverse&gt;.container&gt;.navbar-header
+&gt;button.navbar-toggle[type=button]
+&gt;span.sr-only{Toggle navigation}+span.icon-bar*3
+^a.navbar-brand[href=index.php]&gt;img[src=imgs/logo.png alt=""]
+^^.collapse&gt;ul.nav.navbar-nav
+&gt;li&gt;a.link[href=index.html]{Inicio}
++li.active.link&gt;a[href=login.html]{Ingresar}
++li&gt;a.link[href=registro.html]{Registrarse}
++li&gt;a.link[href=contacto.html]{Contacto}</div>
+                    <div class="example-result">&lt;header id="header"&gt;
+    &lt;nav class="navbar navbar-inverse"&gt;
+        &lt;div class="container"&gt;
+            &lt;div class="navbar-header"&gt;
+                &lt;button class="navbar-toggle" type="button"&gt;
+                    &lt;span class="sr-only"&gt;Toggle navigation&lt;/span&gt;
+                    &lt;span class="icon-bar"&gt;&lt;/span&gt;
+                    &lt;span class="icon-bar"&gt;&lt;/span&gt;
+                    &lt;span class="icon-bar"&gt;&lt;/span&gt;
+                &lt;/button&gt;
+                &lt;a class="navbar-brand" href="index.php"&gt;
+                    &lt;img src="imgs/logo.png" alt=""&gt;
+                &lt;/a&gt;
+            &lt;/div&gt;
+            &lt;div class="collapse"&gt;
+                &lt;ul class="nav navbar-nav"&gt;
+                    &lt;li&gt;
+                        &lt;a class="link" href="index.html"&gt;Inicio&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class="active link"&gt;
+                        &lt;a href="login.html"&gt;Ingresar&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                        &lt;a class="link" href="registro.html"&gt;Registrarse&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                        &lt;a class="link" href="contacto.html"&gt;Contacto&lt;/a&gt;
+                    &lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/nav&gt;
+&lt;/header&gt;</div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
