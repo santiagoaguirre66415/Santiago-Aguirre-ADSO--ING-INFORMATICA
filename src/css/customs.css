@@ -1,0 +1,33 @@
+section article {
+    background: linear-gradient(to right, #ff902f, #fff);
+    border-radius: 50%;
+    color: #ff902f;
+    margin: 2rem auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 0 1px 0 #fff;
+    height: 300px;
+    width: 300px;
+    font-size: 6rem;
+    font-family: "Roboto Slab", serif;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.2);
+    transition: transform 0.25s ease;
+}
+
+section article:hover {
+    cursor: pointer;
+    animation: 1.4s animArticle ease-in-out infinite;
+}
+
+@keyframes animArticle {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
