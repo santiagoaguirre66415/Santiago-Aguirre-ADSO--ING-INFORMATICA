@@ -18,33 +18,120 @@
             <h2>fundamentos de svg y canvas</h2>
         </header>
         <section>
-            <h3>Ejemplo SVG</h3>
-            <svg width="240" height="120" viewBox="0 0 240 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="SVG simple">
-                <rect x="10" y="10" width="220" height="100" rx="14" fill="#f4bc44"></rect>
-                <circle cx="60" cy="60" r="28" fill="#f16529"></circle>
-                <text x="105" y="67" font-size="18" fill="#2f130a" font-family="sans-serif">SVG Basico</text>
+            <h3>SVG: figuras basicas utiles</h3>
+            <svg class="svg-demo" viewBox="0 0 560 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ejemplo SVG basico y didactico">
+                <rect x="0" y="0" width="560" height="220" fill="#fff7ea"></rect>
+
+                <circle cx="70" cy="70" r="36" fill="#f16529"></circle>
+                <text x="38" y="132" font-size="15" fill="#2f130a">circle</text>
+
+                <rect x="130" y="34" width="92" height="72" rx="8" fill="#f7b031"></rect>
+                <text x="152" y="132" font-size="15" fill="#2f130a">rect</text>
+
+                <line x1="258" y1="38" x2="340" y2="106" stroke="#8d2f0e" stroke-width="6"></line>
+                <text x="278" y="132" font-size="15" fill="#2f130a">line</text>
+
+                <polyline points="372,96 400,52 428,80 456,44" fill="none" stroke="#be3a10" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></polyline>
+                <text x="374" y="132" font-size="15" fill="#2f130a">polyline</text>
+
+                <polygon points="504,34 534,84 474,84" fill="#ffd58a" stroke="#8d2f0e" stroke-width="3"></polygon>
+                <text x="472" y="132" font-size="15" fill="#2f130a">polygon</text>
+
+                <path d="M34 182 C 90 150, 140 214, 200 182" fill="none" stroke="#2f130a" stroke-width="4"></path>
+                <text x="206" y="188" font-size="15" fill="#2f130a">path</text>
             </svg>
 
-            <h3>Ejemplo Canvas</h3>
-            <canvas id="canvas-demo" class="canvas-demo" width="240" height="120"></canvas>
+            <h3>Canvas: figuras basicas</h3>
+            <canvas id="canvas-shapes" class="canvas-demo" width="560" height="220"></canvas>
+
+            <h3>Canvas: grafica de barras</h3>
+            <canvas id="canvas-bars" class="canvas-demo" width="560" height="240"></canvas>
         </section>
     </main>
 
     <script>
-        const canvas = document.getElementById('canvas-demo');
-        const ctx = canvas.getContext('2d');
+        const canvasShapes = document.getElementById('canvas-shapes');
+        const ctxShapes = canvasShapes.getContext('2d');
 
-        ctx.fillStyle = '#f7b031';
-        ctx.fillRect(10, 10, 220, 100);
+        ctxShapes.fillStyle = '#fff7ea';
+        ctxShapes.fillRect(0, 0, canvasShapes.width, canvasShapes.height);
 
-        ctx.beginPath();
-        ctx.arc(70, 60, 26, 0, Math.PI * 2);
-        ctx.fillStyle = '#be3a10';
-        ctx.fill();
+        ctxShapes.fillStyle = '#f7b031';
+        ctxShapes.fillRect(30, 40, 100, 70);
+        ctxShapes.fillStyle = '#2f130a';
+        ctxShapes.font = '15px sans-serif';
+        ctxShapes.fillText('fillRect()', 40, 130);
 
-        ctx.fillStyle = '#2f130a';
-        ctx.font = '18px sans-serif';
-        ctx.fillText('Canvas Basico', 105, 66);
+        ctxShapes.strokeStyle = '#8d2f0e';
+        ctxShapes.lineWidth = 4;
+        ctxShapes.strokeRect(160, 40, 100, 70);
+        ctxShapes.fillStyle = '#2f130a';
+        ctxShapes.fillText('strokeRect()', 162, 130);
+
+        ctxShapes.beginPath();
+        ctxShapes.arc(340, 75, 35, 0, Math.PI * 2);
+        ctxShapes.fillStyle = '#f16529';
+        ctxShapes.fill();
+        ctxShapes.fillStyle = '#2f130a';
+        ctxShapes.fillText('arc()', 323, 130);
+
+        ctxShapes.beginPath();
+        ctxShapes.moveTo(405, 110);
+        ctxShapes.lineTo(455, 40);
+        ctxShapes.lineTo(505, 110);
+        ctxShapes.closePath();
+        ctxShapes.fillStyle = '#ffd58a';
+        ctxShapes.fill();
+        ctxShapes.strokeStyle = '#8d2f0e';
+        ctxShapes.lineWidth = 3;
+        ctxShapes.stroke();
+        ctxShapes.fillStyle = '#2f130a';
+        ctxShapes.fillText('beginPath()', 408, 130);
+
+        ctxShapes.beginPath();
+        ctxShapes.moveTo(40, 180);
+        ctxShapes.lineTo(520, 180);
+        ctxShapes.strokeStyle = '#2f130a';
+        ctxShapes.lineWidth = 2;
+        ctxShapes.stroke();
+        ctxShapes.fillText('moveTo() + lineTo()', 215, 202);
+
+        const canvasBars = document.getElementById('canvas-bars');
+        const ctxBars = canvasBars.getContext('2d');
+        const datos = [60, 14, 90, 145, 120];
+        const etiquetas = ['A', 'B', 'C', 'D', 'E'];
+        const baseY = 200;
+        const ancho = 64;
+        const espacio = 30;
+        const inicioX = 42;
+
+        ctxBars.fillStyle = '#fff7ea';
+        ctxBars.fillRect(0, 0, canvasBars.width, canvasBars.height);
+
+        ctxBars.strokeStyle = '#2f130a';
+        ctxBars.lineWidth = 2;
+        ctxBars.beginPath();
+        ctxBars.moveTo(26, 20);
+        ctxBars.lineTo(26, baseY + 1);
+        ctxBars.lineTo(530, baseY + 1);
+        ctxBars.stroke();
+
+        datos.forEach((valor, i) => {
+            const x = inicioX + i * (ancho + espacio);
+            const y = baseY - valor;
+
+            ctxBars.fillStyle = '#f16529';
+            ctxBars.fillRect(x, y, ancho, valor);
+
+            ctxBars.fillStyle = '#2f130a';
+            ctxBars.font = '16px sans-serif';
+            ctxBars.fillText(etiquetas[i], x + 8, baseY + 24);
+            ctxBars.fillText(String(valor), x + 12, y - 8);
+        });
+
+        ctxBars.fillStyle = '#2f130a';
+        ctxBars.font = 'bold 18px sans-serif';
+        ctxBars.fillText('Grafica de barras en Canvas', 154, 18);
     </script>
 </body>
 </html>

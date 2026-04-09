@@ -294,12 +294,27 @@ main h4 {
 }
 
 .graphics-page .canvas-demo {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0.45rem 0 1rem;
+    background: #fff7ea;
+    border-radius: 12px;
     border: 1px solid #2f130a;
 }
 
 .graphics-page svg {
     display: block;
     margin-bottom: 0.8rem;
+}
+
+.graphics-page .svg-demo {
+    width: 100%;
+    height: auto;
+    border: 1px solid rgba(47, 19, 10, 0.35);
+    border-radius: 12px;
+    background: #fff7ea;
+    margin-bottom: 1rem;
 }
 
 .structure-page .structure-block {
@@ -338,6 +353,16 @@ main h4 {
     border-radius: 14px;
     overflow: hidden;
     background: #000;
+}
+
+.video-page .video-player {
+    width: 100%;
+    max-width: 720px;
+    margin-inline: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+    object-position: center;
+    box-shadow: 0 10px 26px rgba(47, 19, 10, 0.22);
 }
 
 .anchor-page .contenedor-botones {
