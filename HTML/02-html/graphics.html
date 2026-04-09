@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12 - Graficos</title>
+    <link rel="stylesheet" href="../../src/css/02-html.css">
+</head>
+<body class="lesson-page graphics-page">
+    <a href="indexhtml.html" class="boton-volver" aria-label="Volver al menu HTML">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#000" viewBox="0 0 256 256">
+            <path d="M232,56A104.11,104.11,0,0,1,128,160H51.31l34.35,34.34a8,8,0,0,1-11.32,11.32l-48-48a8,8,0,0,1,0-11.32l48-48a8,8,0,0,1,11.32,11.32L51.31,144H128a88.1,88.1,0,0,0,88-88,8,8,0,0,1,16,0Z"></path>
+        </svg>
+    </a>
+    <main>
+        <header>
+            <h1>12 - Graficos</h1>
+            <h2>fundamentos de svg y canvas</h2>
+        </header>
+        <section>
+            <h3>Ejemplo SVG</h3>
+            <svg width="240" height="120" viewBox="0 0 240 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="SVG simple">
+                <rect x="10" y="10" width="220" height="100" rx="14" fill="#f4bc44"></rect>
+                <circle cx="60" cy="60" r="28" fill="#f16529"></circle>
+                <text x="105" y="67" font-size="18" fill="#2f130a" font-family="sans-serif">SVG Basico</text>
+            </svg>
+
+            <h3>Ejemplo Canvas</h3>
+            <canvas id="canvas-demo" class="canvas-demo" width="240" height="120"></canvas>
+        </section>
+    </main>
+
+    <script>
+        const canvas = document.getElementById('canvas-demo');
+        const ctx = canvas.getContext('2d');
+
+        ctx.fillStyle = '#f7b031';
+        ctx.fillRect(10, 10, 220, 100);
+
+        ctx.beginPath();
+        ctx.arc(70, 60, 26, 0, Math.PI * 2);
+        ctx.fillStyle = '#be3a10';
+        ctx.fill();
+
+        ctx.fillStyle = '#2f130a';
+        ctx.font = '18px sans-serif';
+        ctx.fillText('Canvas Basico', 105, 66);
+    </script>
+</body>
+</html>

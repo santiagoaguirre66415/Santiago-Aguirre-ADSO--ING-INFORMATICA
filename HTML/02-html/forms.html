@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11 - Formularios</title>
+    <link rel="stylesheet" href="../../src/css/02-html.css">
+</head>
+<body class="lesson-page forms-page">
+    <a href="indexhtml.html" class="boton-volver" aria-label="Volver al menu HTML">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#000" viewBox="0 0 256 256">
+            <path d="M232,56A104.11,104.11,0,0,1,128,160H51.31l34.35,34.34a8,8,0,0,1-11.32,11.32l-48-48a8,8,0,0,1,0-11.32l48-48a8,8,0,0,1,11.32,11.32L51.31,144H128a88.1,88.1,0,0,0,88-88,8,8,0,0,1,16,0Z"></path>
+        </svg>
+    </a>
+    <main>
+        <header>
+            <h1>11 - Formularios</h1>
+            <h2>inputs, labels, validacion</h2>
+        </header>
+        <section>
+            <h3>Formulario completo: tipos principales</h3>
+            <form action="#" method="post" enctype="multipart/form-data" oninput="valorRango.value=nivel.value">
+                <input type="hidden" name="token" value="abc123">
+
+                <fieldset>
+                    <legend>Datos basicos</legend>
+                    <p>
+                        <label for="txt-nombre">text</label><br>
+                        <input id="txt-nombre" name="txtNombre" type="text" minlength="3" maxlength="40" placeholder="Escribe tu nombre" required>
+                    </p>
+                    <p>
+                        <label for="txt-clave">password</label><br>
+                        <input id="txt-clave" name="txtClave" type="password" pattern="(?=.*\d).{8,}" placeholder="8+ caracteres y un numero" required>
+                    </p>
+                    <p>
+                        <label for="txt-correo">email</label><br>
+                        <input id="txt-correo" name="txtCorreo" type="email" placeholder="correo@dominio.com" required>
+                    </p>
+                    <p>
+                        <label for="txt-edad">number</label><br>
+                        <input id="txt-edad" name="txtEdad" type="number" min="14" max="80" step="1">
+                    </p>
+                    <p>
+                        <label for="txt-telefono">tel</label><br>
+                        <input id="txt-telefono" name="txtTelefono" type="tel" placeholder="3001234567" pattern="[0-9]{10}">
+                    </p>
+                    <p>
+                        <label for="txt-web">url</label><br>
+                        <input id="txt-web" name="txtWeb" type="url" placeholder="https://ejemplo.com">
+                    </p>
+                    <p>
+                        <label for="txt-buscar">search</label><br>
+                        <input id="txt-buscar" name="txtBuscar" type="search" placeholder="Buscar...">
+                    </p>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Fechas y tiempo</legend>
+                    <p>
+                        <label for="fecha">date</label><br>
+                        <input id="fecha" name="fecha" type="date">
+                    </p>
+                    <p>
+                        <label for="hora">time</label><br>
+                        <input id="hora" name="hora" type="time">
+                    </p>
+                    <p>
+                        <label for="fecha-hora">datetime-local</label><br>
+                        <input id="fecha-hora" name="fechaHora" type="datetime-local">
+                    </p>
+                    <p>
+                        <label for="mes">month</label><br>
+                        <input id="mes" name="mes" type="month">
+                    </p>
+                    <p>
+                        <label for="semana">week</label><br>
+                        <input id="semana" name="semana" type="week">
+                    </p>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Seleccion y carga</legend>
+                    <p>
+                        <label for="color">color</label><br>
+                        <input id="color" name="color" type="color" value="#f16529">
+                    </p>
+                    <p>
+                        <label for="nivel">range</label><br>
+                        <input id="nivel" name="nivel" type="range" min="0" max="100" value="50">
+                        <output name="valorRango" for="nivel">50</output>
+                    </p>
+                    <p>
+                        <label for="archivo">file</label><br>
+                        <input id="archivo" name="archivo" type="file" accept=".pdf,.jpg,.png,.mp3,.mp4">
+                    </p>
+                    <p>
+                        <label for="ciudad">datalist</label><br>
+                        <input id="ciudad" name="ciudad" list="listaCiudades" placeholder="Selecciona o escribe ciudad">
+                        <datalist id="listaCiudades">
+                            <option value="Bogota"></option>
+                            <option value="Medellin"></option>
+                            <option value="Cali"></option>
+                            <option value="Barranquilla"></option>
+                        </datalist>
+                    </p>
+                    <p>
+                        <label for="programa">select</label><br>
+                        <select id="programa" name="programa">
+                            <option value="">-- Elige una opcion --</option>
+                            <option value="adso">ADSO</option>
+                            <option value="diseno">Diseno Web</option>
+                            <option value="multimedia">Multimedia</option>
+                        </select>
+                    </p>
+                    <p>
+                        <label for="habilidades">select multiple</label><br>
+                        <select id="habilidades" name="habilidades" multiple size="4">
+                            <option>HTML</option>
+                            <option>CSS</option>
+                            <option>JavaScript</option>
+                            <option>Python</option>
+                        </select>
+                    </p>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Opciones y texto largo</legend>
+                    <p>checkbox:</p>
+                    <p>
+                        <input id="chk-html" type="checkbox" name="intereses" value="html">
+                        <label for="chk-html">HTML</label>
+                        <input id="chk-css" type="checkbox" name="intereses" value="css">
+                        <label for="chk-css">CSS</label>
+                        <input id="chk-js" type="checkbox" name="intereses" value="js">
+                        <label for="chk-js">JavaScript</label>
+                    </p>
+
+                    <p>radio:</p>
+                    <p>
+                        <input id="jornada-manana" type="radio" name="jornada" value="manana">
+                        <label for="jornada-manana">Manana</label>
+                        <input id="jornada-tarde" type="radio" name="jornada" value="tarde">
+                        <label for="jornada-tarde">Tarde</label>
+                        <input id="jornada-noche" type="radio" name="jornada" value="noche">
+                        <label for="jornada-noche">Noche</label>
+                    </p>
+
+                    <p>
+                        <label for="comentarios">textarea</label><br>
+                        <textarea id="comentarios" name="comentarios" rows="4" cols="40" placeholder="Escribe un comentario"></textarea>
+                    </p>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Botones</legend>
+                    <p>
+                        <input type="submit" value="input submit">
+                        <input type="reset" value="input reset">
+                        <input type="button" value="input button">
+                    </p>
+                    <p>
+                        <button type="submit">button submit</button>
+                        <button type="reset">button reset</button>
+                        <button type="button">button normal</button>
+                    </p>
+                    <p>
+                        <input type="image" src="../../src/imgs/logo-html.png" alt="input image" width="44" height="44">
+                    </p>
+                </fieldset>
+            </form>
+        </section>
+    </main>
+</body>
+</html>
