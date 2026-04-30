@@ -17,7 +17,6 @@
                 align-items: center;
                 div{
                     color : black;
-                    
                     height: 70px;
                     width: 70px;
                     transition: all 0.2s ease-in;
@@ -87,7 +86,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            &:nth-of-type(2) {
+            &:nth-of-type(1) {
                 div {
                 margin-top: 0.5rem;
             }
@@ -168,7 +167,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            &:nth-of-type(2) {
+            &:nth-of-type(1) {
                 div {
                 margin-top: 0.5rem;
             }
@@ -244,6 +243,86 @@
                 }
             }
         }
+        div.colorshsl {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            &:nth-of-type(4) {
+                
+            
+        }
+            div {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                div{
+                    color : black;
+                    
+                    height: 100px;
+                    width: 100px;
+                    transition: all 0.2s ease-in;
+                    &:hover {
+                        cursor: pointer;
+                        transform: scale(1.2);
+                    }
+                    &:first-child, &:last-child {
+                        color: white;
+                    }
+                    &.maroon4 {
+                        background-color: hsl(0, 100%, 25%);
+                    }
+                    &.red4 {
+                        background-color: hsl(0, 100%, 50%);
+                    }
+                    &.orange4 {
+                        background-color: hsl(39, 100%, 50%);
+                    }
+                    &.yellow4 {
+                        background-color: hsl(60, 100%, 50%);
+                    }
+                    &.olive4 {
+                        background-color: hsl(60, 100%, 25%);
+                    }
+                    &.purple4 {
+                        background-color: hsl(300, 100%, 25%);
+                    }
+                    &.fuchsia4 {
+                        background-color: hsl(300, 100%, 50%);
+                    }
+                    &.white4 {
+                        background-color: hsl(0, 0%, 100%);
+                    }
+                    &.lime4 {
+                        background-color: hsl(120, 100%, 50%);
+                    }
+                    &.green4 {
+                        background-color: hsl(120, 100%, 25%);
+                    }
+                    &.navy4 {
+                        background-color: hsl(240, 100%, 25%);
+                    }
+                    &.blue4 {
+                        background-color: hsl(240, 100%, 50%);
+                    }
+                    &.aqua4 {
+                        background-color: hsl(180, 100%, 50%);
+                    }
+                    &.teal4 {
+                        background-color: hsl(180, 100%, 25%);
+                    }
+                    &.black4 {
+                        background-color: hsl(0, 0%, 0%);
+                    }
+                    &.silver4 {
+                        background-color: hsl(0, 0%, 75%);
+                    }
+                    &.gray4 {
+                        background-color: hsl(0, 0%, 50%);
+                    }
+                }
+            }
+        }
     </style>
 </head>
 <body class="lesson-page">
@@ -257,8 +336,6 @@
         <header>
             <h1>11 - Colors</h1>
             <h2>Specify the color of an element's text, background, or other visual aspects.</h2> 
-            
-            </div>
         </header>
         <section>
             <h3>Name Colors:</h3>
@@ -342,6 +419,35 @@
                     <div class="black3">#000000</div>
                     <div class="silver3">#c0c0c0</div>
                     <div class="gray3">#808080</div>
+                </div>
+            </div>
+            <h3>HSL (Hue, Saturation, Lightness)</h3>
+            <div class="colorshsl">
+
+                <div>
+                    <div class="maroon4">hsl(0, 100%, 25%)</div>
+                    <div class="red4">hsl(0, 100%, 50%)</div>
+                    <div class="orange4">hsl(39, 100%, 50%)</div>
+                    <div class="yellow4">hsl(60, 100%, 50%)</div>
+                    <div class="olive4">hsl(60, 100%, 25%)</div>            
+                </div>
+                <div>
+                    <div class="purple4">hsl(300, 100%, 25%)</div>
+                    <div class="fuchsia4">hsl(300, 100%, 50%)</div>
+                    <div class="white4">hsl(0, 0%, 100%)</div>
+                    <div class="lime4">hsl(120, 100%, 50%)</div>
+                    <div class="green4">hsl(120, 100%, 25%)</div>
+                </div>
+                <div>
+                    <div class="navy4">hsl(240, 100%, 25%)</div>
+                    <div class="blue4">hsl(240, 100%, 50%)</div>
+                    <div class="aqua4">hsl(180, 100%, 50%)</div>
+                    <div class="teal4">hsl(180, 100%, 25%)</div>
+                </div>
+                <div>
+                    <div class="black4">hsl(0, 0%, 0%)</div>
+                    <div class="silver4">hsl(0, 0%, 75%)</div>
+                    <div class="gray4">hsl(0, 0%, 50%)</div>
                 </div>
             </div>
         </section>
