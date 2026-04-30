@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02 - CSS File</title>
+    <link rel="stylesheet" href="../../src/css/03-css.css">
+    <style>
+        section button {
+            border-radius: 0.4rem;
+            border: none;
+            padding: 0.8rem 1.2rem;
+            font-size: 1.2rem;
+            display: flex;
+            margin: 4rem auto;
+        }
+        /*Specificity: 0,1,2*/
+        section button.green {
+            background-color:#5fbb5f;
+
+        }
+        /*Specificity: 0,1,1*/
+        section .green {
+            background-color: #e44ea8;
+        }
+    </style>
+</head>
+<body class="lesson-page">
+    <a href="indexcss.html" class="btn-home" aria-label="Volver al índice de CSS">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </a>
+    <main>
+        <header>
+            <h1>02 - CSS File</h1>
+            <h2>This way we can include CSS from an external file; highly recommended for multi-page projects.</h2>
+        </header>
+        <section>
+            <button class="green">
+                Press Me
+            </button>
+        </section>
+    </main>
+</body>
+</html>

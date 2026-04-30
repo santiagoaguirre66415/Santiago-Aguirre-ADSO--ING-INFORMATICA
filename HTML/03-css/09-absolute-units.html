@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07 - Inheritance</title>
+    <link rel="stylesheet" href="../../src/css/03-css.css" />
+    <style>
+        ul.absolute-units {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            color: #ffffff;
+        }
+        li.abs1 {
+            font-size: 0.5in;
+        }
+        li.abs2 {
+            font-size: 1cm;
+        }
+        li.abs3 {
+            font-size: 10mm;
+        }
+        li.abs4 {
+            font-size: 10pt;
+        }
+        li.abs5 {
+            font-size: 2pc;
+        }
+
+    </style>
+</head>
+<body class="lesson-page">
+    <a href="indexcss.html" class="btn-home" aria-label="Volver al índice de CSS">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    <span class="sr-only">Volver</span>
+    </a>
+    <main>
+        <header>
+            <h1>09 - Absolute Units</h1>
+            <h2>Specify a fixed length values. It does not scale with the parent element or the viewport.</h2> 
+            <ul class="absolute-units">
+                <li>Inch (in)</li>
+                <li>Centimeter (cm)</li>
+                <li>Millimeter (mm)</li>
+                <li>Point (pt)</li>
+                <li>Pica (pc)</li>
+        </header>
+        <section>
+            <ul>
+                <li class="abs1">Inch: 0.5in</li>
+                <li class="abs2">Centimeter: 1cm</li>
+                <li class="abs3">Millimeter: 10mm</li>
+                <li class="abs4">Point: 10pt</li>
+                <li class="abs5">Pica: 2pc</li>
+            </ul>
+        </section>
+    </main>
+</body>
+</html>

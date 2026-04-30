@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07 - Inheritance</title>
+    <link rel="stylesheet" href="../../src/css/03-css.css" />
+    <style>
+        div.colors {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            div {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                div{
+                    color : black;
+                    
+                    height: 70px;
+                    width: 70px;
+                    transition: all 0.2s ease-in;
+                    &:hover {
+                        cursor: pointer;
+                        transform: scale(1.2);
+                    }
+                    &:first-child, &:last-child {
+                        color: white;
+                    }
+                    &.maroon {
+                        background-color: maroon;
+                    }
+                    &.red {
+                        background-color: red;
+                    }
+                    &.orange {
+                        background-color: orange;
+                    }
+                    &.yellow {
+                        background-color: yellow;
+                    }
+                    &.olive {
+                        background-color: olive;
+                    }
+                    &.purple {
+                        background-color: purple;
+                    }
+                    &.fuchsia {
+                        background-color: fuchsia;
+                    }
+                    &.white {
+                        background-color: white;
+                    }
+                    &.lime {
+                        background-color: lime;
+                    }
+                    &.green {
+                        background-color: green;
+                    }
+                    &.navy {
+                        background-color: navy;
+                    }
+                    &.blue {
+                        background-color: blue;
+                    }
+                    &.aqua {
+                        background-color: aqua;
+                    }
+                    &.teal {
+                        background-color: teal;
+                    }
+                    &.black {
+                        background-color: black;
+                    }
+                    &.silver {
+                        background-color: silver;
+                    }
+                    &.gray {
+                        background-color: gray;
+                    }
+                }
+            }
+        }
+        div.colorsrgb {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            &:nth-of-type(2) {
+                div {
+                margin-top: 0.5rem;
+            }
+        }
+            div {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                div{
+                    color : black;
+                    
+                    height: 100px;
+                    width: 100px;
+                    transition: all 0.2s ease-in;
+                    &:hover {
+                        cursor: pointer;
+                        transform: scale(1.2);
+                    }
+                    &:first-child, &:last-child {
+                        color: white;
+                    }
+                    &.maroon2 {
+                        background-color: rgb(128, 0, 0);
+                    }
+                    &.red2 {
+                        background-color: rgb(255, 0, 0);
+                    }
+                    &.orange2 {
+                        background-color: rgb(255, 165, 0);
+                    }
+                    &.yellow2 {
+                        background-color: rgb(255, 255, 0)  ;
+                    }
+                    &.olive2 {
+                        background-color: rgb(128, 128, 0);
+                    }
+                    &.purple2 {
+                        background-color: rgb(128, 0, 128);
+                    }
+                    &.fuchsia2 {
+                        background-color: rgb(255, 0, 255);
+                    }
+                    &.white2 {
+                        background-color: rgb(255, 255, 255);
+                    }
+                    &.lime2 {
+                        background-color: rgb(0, 255, 0);
+                    }
+                    &.green2 {
+                        background-color: rgb(0, 128, 0);
+                    }
+                    &.navy2 {
+                        background-color: rgb(0, 0, 128);
+                    }
+                    &.blue2 {
+                        background-color: rgb(0, 0, 255);
+                    }
+                    &.aqua2 {
+                        background-color: rgb(0, 255, 255);
+                    }
+                    &.teal2 {
+                        background-color: rgb(0, 128, 128);
+                    }
+                    &.black2 {
+                        background-color: rgb(0, 0, 0);
+                    }
+                    &.silver2 {
+                        background-color: rgb(192, 192, 192);
+                    }
+                    &.gray2 {
+                        background-color: rgb(128, 128, 128);
+                    }
+                }
+            }
+        }
+                div.colorshex {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            &:nth-of-type(2) {
+                div {
+                margin-top: 0.5rem;
+            }
+        }
+            div {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                div{
+                    color : black;
+                    
+                    height: 100px;
+                    width: 100px;
+                    transition: all 0.2s ease-in;
+                    &:hover {
+                        cursor: pointer;
+                        transform: scale(1.2);
+                    }
+                    &:first-child, &:last-child {
+                        color: white;
+                    }
+                    &.maroon3 {
+                        background-color: #800000;
+                    }
+                    &.red3 {
+                        background-color: #ff0000;
+                    }
+                    &.orange3 {
+                        background-color: #ffa500;
+                    }
+                    &.yellow3 {
+                        background-color: #ffff00;
+                    }
+                    &.olive3 {
+                        background-color: #808000;
+                    }
+                    &.purple3 {
+                        background-color: #800080;
+                    }
+                    &.fuchsia3 {
+                        background-color: #ff00ff;
+                    }
+                    &.white3 {
+                        background-color: #ffffff;
+                    }
+                    &.lime3 {
+                        background-color: #00ff00;
+                    }
+                    &.green3 {
+                        background-color: #008000;
+                    }
+                    &.navy3 {
+                        background-color: #000080;
+                    }
+                    &.blue3 {
+                        background-color: #0000ff;
+                    }
+                    &.aqua3 {
+                        background-color: #00ffff;
+                    }
+                    &.teal3 {
+                        background-color: #008080;
+                    }
+                    &.black3 {
+                        background-color: #000000;
+                    }
+                    &.silver3 {
+                        background-color: #c0c0c0;
+                    }
+                    &.gray3 {
+                        background-color: #808080;
+                    }
+                }
+            }
+        }
+    </style>
+</head>
+<body class="lesson-page">
+    <a href="indexcss.html" class="btn-home" aria-label="Volver al índice de CSS">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    <span class="sr-only">Volver</span>
+    </a>
+    <main>
+        <header>
+            <h1>11 - Colors</h1>
+            <h2>Specify the color of an element's text, background, or other visual aspects.</h2> 
+            
+            </div>
+        </header>
+        <section>
+            <h3>Name Colors:</h3>
+            <div class="colors">
+                <div>
+                    <div class="maroon">maroon</div>
+                    <div class="red">red</div>
+                    <div class="orange">orange</div>
+                    <div class="yellow">yellow</div>
+                    <div class="olive">olive</div>            
+                </div>
+                <div>
+                    <div class="purple">purple</div>
+                    <div class="fuchsia">fuchsia</div>
+                    <div class="white">white</div>
+                    <div class="lime">lime</div>
+                    <div class="green">green</div>
+                </div>
+                <div>
+                    <div class="navy">navy</div>
+                    <div class="blue">blue</div>
+                    <div class="aqua">aqua</div>
+                    <div class="teal">teal</div>
+                </div>
+                <div>
+                    <div class="black">black</div>
+                    <div class="silver">silver</div>
+                    <div class="gray">gray</div>
+                </div>
+            </div>
+            <h3>RGB decimal</h3>
+            <div class="colorsrgb">
+                <div>
+                    <div class="maroon2">rgb(128, 0, 0)</div>
+                    <div class="red2">rgb(255, 0, 0)</div>
+                    <div class="orange2">rgb(255, 165, 0)</div>
+                    <div class="yellow2">rgb(255, 255, 0)</div>
+                    <div class="olive2">rgb(128, 128, 0)</div>            
+                </div>
+                <div>
+                    <div class="purple2">rgb(128, 0, 128)</div>
+                    <div class="fuchsia2">rgb(255, 0, 255)</div>
+                    <div class="white2">rgb(255, 255, 255)</div>
+                    <div class="lime2">rgb(0, 255, 0)</div>
+                    <div class="green2">rgb(0, 128, 0)</div>
+                </div>
+                <div>
+                    <div class="navy2">rgb(0, 0, 128)</div>
+                    <div class="blue2">rgb(0, 0, 255)</div>
+                    <div class="aqua2">rgb(0, 255, 255)</div>
+                    <div class="teal2">rgb(0, 128, 128)</div>
+                </div>
+                <div>
+                    <div class="black2">rgb(0, 0, 0)</div>
+                    <div class="silver2">rgb(192, 192, 192)</div>
+                    <div class="gray2">rgb(128, 128, 128)</div>
+                </div>
+            </div>
+            <h3>Hexadecimal Colors</h3>
+            <div class="colorshex">
+                 <div>
+                    <div class="maroon3">#800000</div>
+                    <div class="red3">#ff0000</div>
+                    <div class="orange3">#ffa500</div>
+                    <div class="yellow3">#ffff00</div>
+                    <div class="olive3">#808000</div>
+                </div>  
+                <div>
+                    <div class="purple3">#800080</div>
+                    <div class="fuchsia3">#ff00ff</div>
+                    <div class="white3">#ffffff</div>
+                    <div class="lime3">#00ff00</div>
+                </div>
+                <div>
+                    <div class="navy3">#000080</div>
+                    <div class="blue3">#0000ff</div>
+                    <div class="aqua3">#00ffff</div>
+                    <div class="teal3">#008080</div>
+                </div>
+                <div>
+                    <div class="black3">#000000</div>
+                    <div class="silver3">#c0c0c0</div>
+                    <div class="gray3">#808080</div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

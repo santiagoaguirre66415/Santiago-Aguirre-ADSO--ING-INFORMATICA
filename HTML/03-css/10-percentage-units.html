@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07 - Inheritance</title>
+    <link rel="stylesheet" href="../../src/css/03-css.css" />
+    <style>
+
+        main{
+            width: 100%;
+            section.percentage{
+
+                matgin: 0 auto;
+                width: 80%;
+                    div.parent{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        div {
+                            height: 50dvh;
+                            font-size: 2rem;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            &.child1 {
+                                width: 70%;
+                                background-color: #ff0000;
+                            }
+                            &.child2 {
+                                width: 30%;
+                                background-color: #ff9100;
+                            }
+                        }               
+                    }
+            }
+        } 
+        
+
+    </style>
+</head>
+<body class="lesson-page">
+    <a href="indexcss.html" class="btn-home" aria-label="Volver al índice de CSS">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    <span class="sr-only">Volver</span>
+    </a>
+    <main>
+        <header>
+            <h1>10 - Percentage Units</h1>
+            <h2>Specify a length as a percentage of the parent element's dimension.</h2> 
+        </header>
+        <section class="percentage">
+            <div class="parent">
+                <div class="child1">NELSON ES 70% GAY</div>
+                <div class="child2">30%</div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

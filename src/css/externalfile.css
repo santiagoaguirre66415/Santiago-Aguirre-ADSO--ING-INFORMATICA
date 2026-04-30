@@ -1,0 +1,9 @@
+.adso {
+  background: linear-gradient(45deg, #f06, transparent);
+  border-radius: 0.4em;
+  color: black;
+  padding: 1rem;
+  height: auto;
+  font-size: 3.6rem;
+  margin-bottom: 1rem;
+}

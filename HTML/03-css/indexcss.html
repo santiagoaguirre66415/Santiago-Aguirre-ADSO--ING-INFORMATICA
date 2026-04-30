@@ -1,0 +1,372 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>03-CSS</title>
+    <link rel="stylesheet" href="../../src/css/03-css.css" />
+  </head>
+  <body class="css-index-page">
+    <a class="btn-home" href="../index.html" aria-label="Back to home">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        width="auto"
+        height="auto"
+      >
+        <path
+          d="M23.121,9.069,15.536,1.483a5.008,5.008,0,0,0-7.072,0L.879,9.069A2.978,2.978,0,0,0,0,11.19v9.817a3,3,0,0,0,3,3H21a3,3,0,0,0,3-3V11.19A2.978,2.978,0,0,0,23.121,9.069ZM15,22.007H9V18.073a3,3,0,0,1,6,0Zm7-1a1,1,0,0,1-1,1H17V18.073a5,5,0,0,0-10,0v3.934H3a1,1,0,0,1-1-1V11.19a1.008,1.008,0,0,1,.293-.707L9.878,2.9a3.008,3.008,0,0,1,4.244,0l7.585,7.586A1.008,1.008,0,0,1,22,11.19Z"
+        />
+      </svg>
+    </a>
+
+    <main>
+      <h1>03-CSS</h1>
+      <img src="../../src/imgs/logo-css.png" alt="CSS logo">
+      <h4 class="author">Santiago Aguirre Salinas</h4>
+      <div class="menus">
+        <menu>
+        <a href="01-document-style.html"
+          ><span>01</span>
+          <aside>
+            <h4>Document Style</h4>
+            <small
+              >This way we can include CSS within the style tag, useful when you
+              only have an HTML document.</small
+            >
+          </aside></a
+        >
+        <a href="02-css-file.html"
+          ><span>02</span>
+          <aside>
+            <h4>CSS File</h4>
+            <small
+              >This way we can include CSS from an external file; highly
+              recommended for multi-page projects.</small
+            >
+          </aside></a
+        >
+        <a href="03-attr-style.html"
+          ><span>03</span>
+          <aside>
+            <h4>Attr Style</h4>
+            <small
+              >This way we can include CSS within the style attribute in an HTML
+              tag; least recommended.</small
+            >
+          </aside></a
+        >
+        <a href="04-basic-selectors.html"
+          ><span>04</span>
+          <aside>
+            <h4>Basic Selectors</h4>
+            <small
+              >Universal, type, descendant, class, ID and merged
+              selectors.</small
+            >
+          </aside></a
+        >
+        <a href="05-advanced-selectors.html"
+          ><span>05</span>
+          <aside>
+            <h4>Advanced Selectors</h4>
+            <small>Children, adjacent sibling and attribute selectors.</small>
+          </aside></a
+        >
+        <a href="06-specificity.html"
+          ><span>06</span>
+          <aside>
+            <h4>Specificity</h4>
+            <small
+              >Score/rank that determines which style declaration is
+              applied.</small
+            >
+          </aside></a
+        >
+        <a href="07-inheritance.html"
+          ><span>07</span>
+          <aside>
+            <h4>Inheritance</h4>
+            <small
+              >A property is inherited from the parent to descendants.</small
+            >
+          </aside></a
+        >
+        <a href="08-relative-units.html"
+          ><span>08</span>
+          <aside>
+            <h4>Relative Units</h4>
+            <small>Specify lengths relative to another property.</small>
+          </aside></a
+        >
+        <a href="09-absolute-units.html"
+          ><span>09</span>
+          <aside>
+            <h4>Absolute Units</h4>
+            <small>Specify fixed lengths unaffected by viewport changes.</small>
+          </aside></a
+        >
+        <a href="10-percentage-units.html"
+          ><span>10</span>
+          <aside>
+            <h4>Percentage Units</h4>
+            <small>Relative to the size of the parent element.</small>
+          </aside></a
+        >
+        <a href="11-colors.html"
+          ><span>11</span>
+          <aside>
+            <h4>Colors</h4>
+            <small>Predefined names or RGB, HEX, HSL values.</small>
+          </aside></a
+        >
+        <a href="12-colors-alpha.html"
+          ><span>12</span>
+          <aside>
+            <h4>Colors Alpha</h4>
+            <small>The alpha channel adds opacity/transparency.</small>
+          </aside></a
+        >
+        <a href="13-box-model.html"
+          ><span>13</span>
+          <aside>
+            <h4>Box Model</h4>
+            <small>Content, padding, border and margin.</small>
+          </aside></a
+        >
+        <a href="14-background.html"
+          ><span>14</span>
+          <aside>
+            <h4>Background</h4>
+            <small>Color, image, repeat, position and size.</small>
+          </aside></a
+        >
+        <a href="15-position.html"
+          ><span>15</span>
+          <aside>
+            <h4>Position</h4>
+            <small>Static, relative, absolute, fixed and sticky.</small>
+          </aside></a
+        >
+        <a href="16-float.html"
+          ><span>16</span>
+          <aside>
+            <h4>Float</h4>
+            <small>Pushes elements left or right.</small>
+          </aside></a
+        >
+        <a href="17-visualization.html"
+          ><span>17</span>
+          <aside>
+            <h4>Visualization</h4>
+            <small>Display, visibility, overflow and z-index.</small>
+          </aside></a
+        >
+        <a href="18-typography.html"
+          ><span>18</span>
+          <aside>
+            <h4>Typography</h4>
+            <small>Color, family, size and weight.</small>
+          </aside></a
+        >
+        <a href="19-text.html"
+          ><span>19</span>
+          <aside>
+            <h4>Text</h4>
+            <small
+              >Align, line height, decoration, transform and spacing.</small
+            >
+          </aside></a
+        >
+        <a href="20-pseudoclasses.html"
+          ><span>20</span>
+          <aside>
+            <h4>Pseudoclasses</h4>
+            <small>Define special states of elements.</small>
+          </aside></a
+        >
+        <a href="21-lists.html"
+          ><span>21</span>
+          <aside>
+            <h4>Lists</h4>
+            <small>Set list style properties at once.</small>
+          </aside></a
+        >
+        <a href="22-cursors.html"
+          ><span>22</span>
+          <aside>
+            <h4>Cursors</h4>
+            <small>Specifies the mouse cursor on hover.</small>
+          </aside></a
+        >
+        <a href="23-sprite.html"
+          ><span>23</span>
+          <aside>
+            <h4>Sprite</h4>
+            <small>A sprite combines many images into one file.</small>
+          </aside></a
+        >
+        <a href="24-challenge-layout.html"
+          ><span>24</span>
+          <aside>
+            <h4>Challenge Layout</h4>
+            <small>Solved.</small>
+          </aside></a
+        >
+        <a href="25-new-selectors.html"
+          ><span>25</span>
+          <aside>
+            <h4>New Selectors</h4>
+            <small>Modern ways to target elements.</small>
+          </aside></a
+        >
+        </menu>
+        </div>
+        <div class="menus">
+        <menu>
+
+        <a href="26-border-radius.html"
+          ><span>26</span>
+          <aside>
+            <h4>Border Radius</h4>
+            <small>Defines rounded corners.</small>
+          </aside></a
+        >
+        <a href="27-box-shadow.html"
+          ><span>27</span>
+          <aside>
+            <h4>Box Shadow</h4>
+            <small>Attaches one or more shadows to an element.</small>
+          </aside></a
+        >
+        <a href="28-challenge-shadow.html"
+          ><span>28</span>
+          <aside>
+            <h4>Challenge Shadow</h4>
+            <small>Pixel Art (Batman).</small>
+          </aside></a
+        >
+        <a href="29-new-backgrounds.html"
+          ><span>29</span>
+          <aside>
+            <h4>New Backgrounds</h4>
+            <small>Multiple backgrounds, gradients and clip.</small>
+          </aside></a
+        >
+        <a href="30-text-shadow.html"
+          ><span>30</span>
+          <aside>
+            <h4>Text Shadow</h4>
+            <small>Adds shadows to text.</small>
+          </aside></a
+        >
+        <a href="31-filters.html"
+          ><span>31</span>
+          <aside>
+            <h4>Filters</h4>
+            <small>Visual effects like blur and saturation.</small>
+          </aside></a
+        >
+        <a href="32-clip-path.html"
+          ><span>32</span>
+          <aside>
+            <h4>Clip Path</h4>
+            <small>Clips an element to a shape.</small>
+          </aside></a
+        >
+        <a href="33-web-fonts.html"
+          ><span>33</span>
+          <aside>
+            <h4>Web Fonts</h4>
+            <small>Use fonts not installed on the user computer.</small>
+          </aside></a
+        >
+        <a href="34-variables.html"
+          ><span>34</span>
+          <aside>
+            <h4>Variables</h4>
+            <small>Insert custom properties with var().</small>
+          </aside></a
+        >
+        <a href="35-transformations.html"
+          ><span>35</span>
+          <aside>
+            <h4>Transformations</h4>
+            <small>Rotate, scale, skew and translate.</small>
+          </aside></a
+        >
+        <a href="36-transitions.html"
+          ><span>36</span>
+          <aside>
+            <h4>Transitions</h4>
+            <small>Define transitions between states.</small>
+          </aside></a
+        >
+        <a href="37-animations.html"
+          ><span>37</span>
+          <aside>
+            <h4>Animations</h4>
+            <small>Gradually change styles over time.</small>
+          </aside></a
+        >
+        <a href="38-media-queries.html"
+          ><span>38</span>
+          <aside>
+            <h4>Media Queries</h4>
+            <small>None.</small>
+          </aside></a
+        >
+        <a href="39-challenge-responsive.html"
+          ><span>39</span>
+          <aside>
+            <h4>Challenge Responsive</h4>
+            <small>Solved.</small>
+          </aside></a
+        >
+        <a href="40-steps.html"
+          ><span>40</span>
+          <aside>
+            <h4>Steps</h4>
+            <small>Step-by-step animation for sprites.</small>
+          </aside></a
+        >
+        <a href="41-functions.html"
+          ><span>41</span>
+          <aside>
+            <h4>Functions</h4>
+            <small>Special CSS calculations and processing.</small>
+          </aside></a
+        >
+        <a href="42-parallax.html"
+          ><span>42</span>
+          <aside>
+            <h4>Parallax</h4>
+            <small>Background layers move at different speeds.</small>
+          </aside></a
+        >
+        <a href="43-flexbox.html"
+          ><span>43</span>
+          <aside>
+            <h4>Flexbox</h4>
+            <small>Flexible responsive layout structure.</small>
+          </aside></a
+        >
+        <a href="44-grid.html"
+          ><span>44</span>
+          <aside>
+            <h4>Grid</h4>
+            <small>None.</small>
+          </aside></a
+        >
+        <a href="45-challenge-grid.html"
+          ><span>45</span>
+          <aside>
+            <h4>Challenge Grid</h4>
+            <small>Irregular gallery.</small>
+          </aside></a
+        >
+      </menu>
+      </div>
+    </main>
+  </body>
+</html>
