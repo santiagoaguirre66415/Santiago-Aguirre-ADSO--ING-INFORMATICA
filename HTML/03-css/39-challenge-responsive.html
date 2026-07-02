@@ -1,27 +1,824 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>39 - Challenge Responsive</title>
-    <link rel="stylesheet" href="../../src/css/03-css.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="ARK: Survival Evolved - Supervivencia extrema en una isla llena de dinosaurios." />
+    <title>ARK: Survival Evolved</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    />
+
+    <style>
+        /* ============================================
+           RESET Y VARIABLES - ESTILO ARK
+        ============================================ */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --ark-orange: #e87a2a;
+            --ark-orange-light: #ff9a4a;
+            --ark-orange-dark: #b85a1a;
+            --ark-gold: #f5c842;
+            --ark-brown: #5a3a2a;
+            --ark-dark: #0a0604;
+            --ark-darker: #050302;
+            --ark-stone: #8a7a6a;
+            --ark-text: #d4c4a8;
+            --ark-text-muted: #8a7a6a;
+            --ark-border: rgba(232, 122, 42, 0.3);
+            --ark-shadow: 0 8px 32px rgba(0, 0, 0, 0.8);
+            --ark-glow: 0 0 40px rgba(232, 122, 42, 0.15);
+
+            --font-display: 'Bebas Neue', sans-serif;
+            --font-body: 'Rajdhani', sans-serif;
+
+            --radius: 4px;
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* ============================================
+           BASE - FONDO ESTILO ARK
+        ============================================ */
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: var(--font-body);
+            font-weight: 400;
+            color: var(--ark-text);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            background: var(--ark-darker);
+            overflow-x: hidden;
+        }
+
+        /* ============================================
+           FONDO PRINCIPAL - CAPAS ESTILO ARK
+        ============================================ */
+
+        /* Capa 1: Cielo degradado (atardecer ARK) */
+        .ark-bg {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            background:
+                radial-gradient(ellipse at 60% 20%, rgba(232, 122, 42, 0.15) 0%, transparent 60%),
+                radial-gradient(ellipse at 30% 70%, rgba(245, 200, 66, 0.08) 0%, transparent 50%),
+                linear-gradient(180deg,
+                    #0a0806 0%,
+                    #1a1008 15%,
+                    #1f150a 30%,
+                    #1a1208 45%,
+                    #0f0a06 65%,
+                    #080504 80%,
+                    #050302 100%
+                );
+        }
+
+        /* Capa 2: Silueta de montañas/isla (estilo ARK) */
+        .ark-bg::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: 1;
+            background:
+                /* Montañas lejanas */
+                radial-gradient(ellipse at 10% 95%, rgba(20, 12, 8, 0.6) 0%, transparent 40%),
+                radial-gradient(ellipse at 90% 92%, rgba(25, 15, 10, 0.5) 0%, transparent 35%),
+                radial-gradient(ellipse at 50% 98%, rgba(10, 6, 4, 0.7) 0%, transparent 50%),
+                /* Silueta de árboles/palmeras */
+                radial-gradient(ellipse at 15% 90%, rgba(5, 3, 2, 0.8) 0%, transparent 20%),
+                radial-gradient(ellipse at 85% 88%, rgba(5, 3, 2, 0.7) 0%, transparent 25%),
+                /* Bruma/niebla */
+                radial-gradient(ellipse at 50% 85%, rgba(232, 122, 42, 0.03) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        /* Capa 3: Textura de ruido (como el juego) */
+        .ark-bg::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: 2;
+            background-image:
+                url('data:image/svg+xml,%3Csvg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="4" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)" opacity="0.06"/%3E%3C/svg%3E');
+            background-size: 256px 256px;
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
+        /* Capa 4: Bruma/nubes bajas estilo ARK */
+        .ark-fog {
+            position: fixed;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+            background:
+                radial-gradient(ellipse at 20% 100%, rgba(180, 140, 100, 0.04) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 90%, rgba(180, 140, 100, 0.03) 0%, transparent 40%),
+                radial-gradient(ellipse at 50% 95%, rgba(200, 160, 120, 0.02) 0%, transparent 60%);
+        }
+
+        /* Capa 5: Partículas/estrellas sutiles */
+        .ark-stars {
+            position: fixed;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+            background-image:
+                radial-gradient(2px 2px at 10% 15%, rgba(255, 255, 255, 0.15), transparent),
+                radial-gradient(2px 2px at 25% 8%, rgba(255, 255, 255, 0.1), transparent),
+                radial-gradient(1px 1px at 40% 20%, rgba(255, 255, 255, 0.12), transparent),
+                radial-gradient(1px 1px at 60% 5%, rgba(255, 255, 255, 0.08), transparent),
+                radial-gradient(2px 2px at 75% 12%, rgba(255, 255, 255, 0.1), transparent),
+                radial-gradient(1px 1px at 90% 18%, rgba(255, 255, 255, 0.06), transparent),
+                radial-gradient(1px 1px at 15% 25%, rgba(255, 255, 255, 0.05), transparent),
+                radial-gradient(2px 2px at 50% 10%, rgba(255, 255, 255, 0.07), transparent),
+                radial-gradient(1px 1px at 70% 22%, rgba(255, 255, 255, 0.04), transparent),
+                radial-gradient(1px 1px at 35% 30%, rgba(255, 255, 255, 0.03), transparent);
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+        }
+
+        /* Capa 6: Vignette (oscurecimiento en bordes) */
+        .ark-vignette {
+            position: fixed;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+            background:
+                radial-gradient(ellipse at center, transparent 50%, rgba(0, 0, 0, 0.6) 100%);
+        }
+
+        /* ============================================
+           LAYOUT PRINCIPAL
+        ============================================ */
+        .app {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 1rem 1rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* ============================================
+           HEADER - ESTILO ARK
+        ============================================ */
+        .ark-header {
+            text-align: center;
+            padding: 1.5rem 0 2rem 0;
+            position: relative;
+        }
+
+        .ark-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--ark-orange), var(--ark-gold), var(--ark-orange), transparent);
+            opacity: 0.4;
+        }
+
+        .ark-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.1rem;
+        }
+
+        .ark-logo__main {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .ark-logo__text {
+            font-family: var(--font-display);
+            font-weight: 400;
+            font-size: clamp(3.5rem, 12vw, 6.5rem);
+            letter-spacing: 4px;
+            line-height: 0.9;
+            position: relative;
+        }
+
+        .ark-logo__text--ark {
+            color: #b8a898;
+            text-shadow:
+                0 2px 4px rgba(0, 0, 0, 0.9),
+                0 0 40px rgba(232, 122, 42, 0.08);
+            position: relative;
+        }
+
+        .ark-logo__text--ark::after {
+            content: 'ARK';
+            position: absolute;
+            inset: 0;
+            color: transparent;
+            background: linear-gradient(
+                135deg,
+                rgba(232, 122, 42, 0.15) 0%,
+                rgba(245, 200, 66, 0.08) 30%,
+                rgba(232, 122, 42, 0.12) 60%,
+                rgba(90, 58, 42, 0.2) 100%
+            );
+            -webkit-background-clip: text;
+            background-clip: text;
+            mix-blend-mode: overlay;
+            animation: arkTexture 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes arkTexture {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .ark-logo__text--survival {
+            color: var(--ark-gold);
+            text-shadow:
+                0 2px 4px rgba(0, 0, 0, 0.9),
+                0 0 30px rgba(245, 200, 66, 0.1),
+                0 0 60px rgba(232, 122, 42, 0.05);
+        }
+
+        .ark-logo__divider {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            width: 100%;
+            max-width: 300px;
+            margin: 0.2rem auto;
+        }
+
+        .ark-logo__divider-line {
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--ark-orange), var(--ark-gold), var(--ark-orange), transparent);
+            opacity: 0.5;
+        }
+
+        .ark-logo__divider-diamond {
+            width: 6px;
+            height: 6px;
+            background: var(--ark-orange);
+            transform: rotate(45deg);
+            flex-shrink: 0;
+            opacity: 0.6;
+        }
+
+        .ark-logo__sub {
+            font-family: var(--font-body);
+            font-size: clamp(0.65rem, 1.2vw, 0.85rem);
+            font-weight: 600;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            color: var(--ark-text-muted);
+            opacity: 0.6;
+            margin-top: 0.15rem;
+            transition: opacity var(--transition), letter-spacing var(--transition);
+        }
+
+        .ark-header:hover .ark-logo__sub {
+            opacity: 1;
+            letter-spacing: 10px;
+            color: var(--ark-orange-light);
+        }
+
+        /* ============================================
+           GALERÍA
+        ============================================ */
+        .ark-gallery {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 1rem 0 2.5rem 0;
+            width: 100%;
+            overflow-x: auto;
+            scrollbar-width: thin;
+            scrollbar-color: var(--ark-orange) transparent;
+            list-style: none;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .ark-gallery::-webkit-scrollbar {
+            height: 4px;
+        }
+        .ark-gallery::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .ark-gallery::-webkit-scrollbar-thumb {
+            background: var(--ark-orange);
+            border-radius: 10px;
+        }
+
+        /* ============================================
+           TARJETA
+        ============================================ */
+        .ark-card {
+            display: flex;
+            flex-direction: column;
+            min-width: 240px;
+            max-width: 260px;
+            flex: 0 0 auto;
+            background: var(--ark-dark);
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--ark-border);
+            box-shadow: var(--ark-shadow);
+            transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+            will-change: transform;
+            position: relative;
+        }
+
+        .ark-card::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: 20%;
+            width: 60%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--ark-orange), var(--ark-gold), var(--ark-orange), transparent);
+            opacity: 0;
+            transition: opacity var(--transition), width var(--transition);
+            z-index: 2;
+        }
+
+        .ark-card:hover::before {
+            opacity: 1;
+            width: 80%;
+            left: 10%;
+        }
+
+        .ark-card:hover {
+            transform: scale(1.03) translateY(-6px);
+            box-shadow: var(--ark-glow), var(--ark-shadow);
+            border-color: rgba(232, 122, 42, 0.5);
+        }
+
+        .ark-card__media {
+            position: relative;
+            display: flex;
+            height: 340px;
+            overflow: hidden;
+            background: #1a100a;
+        }
+
+        .ark-card__media img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            filter: saturate(1.1) contrast(1.05);
+        }
+
+        .ark-card:hover .ark-card__media img {
+            transform: scale(1.06);
+        }
+
+        .ark-card__overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 14px 14px;
+            background: linear-gradient(to top, rgba(5, 3, 2, 0.95) 0%, rgba(5, 3, 2, 0.6) 50%, transparent 100%);
+        }
+
+        .ark-card__title {
+            font-family: var(--font-display);
+            font-weight: 400;
+            font-size: 1.4rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--ark-orange);
+            transition: color var(--transition), letter-spacing var(--transition), transform var(--transition);
+            transform: translateY(0);
+        }
+
+        .ark-card:hover .ark-card__title {
+            color: var(--ark-gold);
+            letter-spacing: 4px;
+            transform: translateY(-2px);
+        }
+
+        .ark-card__badge {
+            display: inline-block;
+            font-family: var(--font-body);
+            font-size: 0.6rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--ark-text-muted);
+            background: rgba(0, 0, 0, 0.5);
+            padding: 0.15rem 0.6rem;
+            border-radius: 2px;
+            border: 1px solid rgba(232, 122, 42, 0.15);
+            margin-top: 0.2rem;
+            transition: color var(--transition), border-color var(--transition);
+        }
+
+        .ark-card:hover .ark-card__badge {
+            color: var(--ark-orange-light);
+            border-color: rgba(232, 122, 42, 0.3);
+        }
+
+        /* ============================================
+           SECCIONES INFORMATIVAS
+        ============================================ */
+        .ark-section {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            background: rgba(5, 3, 2, 0.85);
+            border: 1px solid var(--ark-border);
+            border-radius: var(--radius);
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            width: 100%;
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: var(--ark-shadow);
+            transition: border-color var(--transition), background var(--transition), transform var(--transition);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(2px);
+        }
+
+        .ark-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--ark-orange), var(--ark-gold), var(--ark-orange), transparent);
+            opacity: 0.3;
+            transition: opacity var(--transition);
+        }
+
+        .ark-section:hover::before {
+            opacity: 0.8;
+        }
+
+        .ark-section:hover {
+            border-color: rgba(232, 122, 42, 0.5);
+            background: rgba(5, 3, 2, 0.95);
+            transform: translateY(-2px);
+        }
+
+        .ark-section__image {
+            flex: 0 0 auto;
+            width: auto;
+            height: 240px;
+            border-radius: var(--radius);
+            object-fit: cover;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+            transition: transform var(--transition), filter var(--transition);
+            filter: saturate(1.1) contrast(1.05);
+            border: 1px solid rgba(232, 122, 42, 0.1);
+        }
+
+        .ark-section:hover .ark-section__image {
+            transform: scale(1.02);
+            border-color: rgba(232, 122, 42, 0.3);
+        }
+
+        .ark-section__content {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .ark-section__title {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            letter-spacing: 3px;
+            color: var(--ark-orange);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            transition: color var(--transition);
+        }
+
+        .ark-section:hover .ark-section__title {
+            color: var(--ark-gold);
+        }
+
+        .ark-section__text {
+            font-size: 1.05rem;
+            color: var(--ark-text);
+            text-align: justify;
+            line-height: 1.8;
+        }
+
+        .ark-section__text strong {
+            color: var(--ark-orange-light);
+            font-weight: 600;
+        }
+
+        /* ============================================
+           RESPONSIVE
+        ============================================ */
+        @media screen and (max-width: 1024px) {
+            .ark-gallery {
+                flex-wrap: wrap;
+                gap: 20px;
+                justify-content: center;
+                overflow-x: visible;
+            }
+            .ark-card {
+                min-width: 210px;
+                max-width: 240px;
+            }
+            .ark-card__media {
+                height: 280px;
+            }
+            .ark-section {
+                flex-direction: column;
+                text-align: center;
+                padding: 1.5rem;
+            }
+            .ark-section__text {
+                text-align: center;
+            }
+            .ark-section__image {
+                height: 200px;
+                width: 100%;
+                max-width: 400px;
+            }
+            .ark-section__title {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media screen and (max-width: 640px) {
+            .app {
+                padding: 0.5rem 0.75rem 1.5rem;
+            }
+            .ark-gallery {
+                flex-direction: column;
+                align-items: center;
+                gap: 18px;
+                padding: 0.5rem 0 1.5rem;
+            }
+            .ark-card {
+                min-width: 200px;
+                max-width: 280px;
+                width: 100%;
+            }
+            .ark-card__media {
+                height: 260px;
+            }
+            .ark-section {
+                padding: 1.25rem;
+                gap: 0.75rem;
+                margin-bottom: 1rem;
+            }
+            .ark-section__image {
+                height: 160px;
+                max-width: 300px;
+            }
+            .ark-section__text {
+                font-size: 0.95rem;
+                min-width: unset;
+            }
+            .ark-section__title {
+                font-size: 1.3rem;
+            }
+            .ark-logo__text {
+                font-size: clamp(2.8rem, 10vw, 4rem);
+            }
+            .ark-logo__divider {
+                max-width: 200px;
+            }
+            .ark-logo__sub {
+                font-size: 0.55rem;
+                letter-spacing: 4px;
+            }
+            .ark-header {
+                padding: 1rem 0 1.5rem 0;
+            }
+        }
+
+        @media screen and (max-width: 400px) {
+            .ark-card__title {
+                font-size: 1.1rem;
+                letter-spacing: 2px;
+            }
+            .ark-card__media {
+                height: 220px;
+            }
+            .ark-section__image {
+                height: 130px;
+            }
+            .ark-section {
+                padding: 0.75rem;
+            }
+            .ark-section__text {
+                font-size: 0.85rem;
+            }
+            .ark-section__title {
+                font-size: 1.1rem;
+            }
+            .ark-logo__text {
+                font-size: 2.4rem;
+                letter-spacing: 2px;
+            }
+            .ark-logo__sub {
+                font-size: 0.5rem;
+                letter-spacing: 3px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        ::selection {
+            background: var(--ark-orange);
+            color: #fff;
+        }
+    </style>
 </head>
-<body class="lesson-page">
-    <a href="indexcss.html" class="btn-home" aria-label="Volver al índice de CSS">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-    </a>
-    <main>
-        <header>
-            <h1>39 - Challenge Responsive</h1>
-            <h2>Reto de diseno responsive con media queries.</h2>
+
+<body>
+    <!-- ===== CAPAS DE FONDO ARK ===== -->
+    <div class="ark-bg"></div>
+    <div class="ark-fog"></div>
+    <div class="ark-stars"></div>
+    <div class="ark-vignette"></div>
+
+    <!-- ===== CONTENIDO ===== -->
+    <div class="app">
+        <!-- HEADER -->
+        <header class="ark-header">
+            <div class="ark-logo">
+                <div class="ark-logo__main">
+                    <span class="ark-logo__text ark-logo__text--ark">ARK</span>
+                    <span class="ark-logo__text ark-logo__text--survival">SURVIVAL</span>
+                </div>
+                <div class="ark-logo__divider">
+                    <span class="ark-logo__divider-line"></span>
+                    <span class="ark-logo__divider-diamond"></span>
+                    <span class="ark-logo__divider-line"></span>
+                </div>
+                <span class="ark-logo__sub">Evolución Extrema</span>
+            </div>
         </header>
-        <section>
-            <div class="recuadro">
-                <p>Reto responsive pendiente.</p>
+
+        <!-- GALERÍA -->
+        <ul class="ark-gallery" role="list" aria-label="Criaturas de ARK">
+            <li class="ark-card" role="listitem">
+                <div class="ark-card__media">
+                    <img
+                        src="../../src/imgs/ark1.jpg"
+                        alt="Triceratops en su hábitat natural"
+                        loading="lazy"
+                        width="280"
+                        height="360"
+                        decoding="async"
+                    />
+                    <div class="ark-card__overlay">
+                        <div class="ark-card__title">Triceratops</div>
+                        <span class="ark-card__badge">Herbívoro</span>
+                    </div>
+                </div>
+            </li>
+
+            <li class="ark-card" role="listitem">
+                <div class="ark-card__media">
+                    <img
+                        src="../../src/imgs/ark2.jpg"
+                        alt="Tyrannosaurus Rex acechando"
+                        loading="lazy"
+                        width="280"
+                        height="360"
+                        decoding="async"
+                    />
+                    <div class="ark-card__overlay">
+                        <div class="ark-card__title">T-Rex</div>
+                        <span class="ark-card__badge">Carnívoro</span>
+                    </div>
+                </div>
+            </li>
+
+            <li class="ark-card" role="listitem">
+                <div class="ark-card__media">
+                    <img
+                        src="../../src/imgs/ark3.webp"
+                        alt="Manada de dinosaurios en la llanura"
+                        loading="lazy"
+                        width="280"
+                        height="360"
+                        decoding="async"
+                    />
+                    <div class="ark-card__overlay">
+                        <div class="ark-card__title">Manada</div>
+                        <span class="ark-card__badge">Alianza</span>
+                    </div>
+                </div>
+            </li>
+
+            <li class="ark-card" role="listitem">
+                <div class="ark-card__media">
+                    <img
+                        src="../../src/imgs/ark4.jpeg"
+                        alt="Base fortificada con dinosaurios"
+                        loading="lazy"
+                        width="280"
+                        height="360"
+                        decoding="async"
+                    />
+                    <div class="ark-card__overlay">
+                        <div class="ark-card__title">Base</div>
+                        <span class="ark-card__badge">Fortaleza</span>
+                    </div>
+                </div>
+            </li>
+        </ul>
+
+        <!-- SECCIÓN 1 -->
+        <section class="ark-section">
+            <img
+                class="ark-section__image"
+                src="../../src/imgs/ark1.jpg"
+                alt="Supervivencia en ARK"
+                loading="lazy"
+                width="400"
+                height="260"
+                decoding="async"
+            />
+            <div class="ark-section__content">
+                <h2 class="ark-section__title">Supervivencia</h2>
+                <p class="ark-section__text">
+                    Despiertas en una isla sin nada. <strong>Dinosaurios</strong> por todos lados.
+                    Algunos te quieren comer, otros los puedes domesticar. Toca cazar, recolectar,
+                    construir y sobrevivir. Cada día es una lucha, cada noche una amenaza.
+                    La isla guarda secretos antiguos, <strong>tecnología perdida</strong> y
+                    criaturas que desafían la lógica. Bienvenido a <strong>ARK</strong>.
+                </p>
             </div>
         </section>
-    </main>
+
+        <!-- SECCIÓN 2 -->
+        <section class="ark-section">
+            <img
+                class="ark-section__image"
+                src="../../src/imgs/ark2.jpg"
+                alt="Domesticación en ARK"
+                loading="lazy"
+                width="400"
+                height="260"
+                decoding="async"
+            />
+            <div class="ark-section__content">
+                <h2 class="ark-section__title">Domesticación</h2>
+                <p class="ark-section__text">
+                    Cada criatura es única. Un <strong>Raptor</strong> corre veloz, un
+                    <strong>Pteranodon</strong> surca los cielos, un <strong>T-Rex</strong>
+                    arrasa con todo. Domésticalos, entrénalos, montalos. Construye tu
+                    <strong>base</strong>, fortifícala con paredes y defensas. Pero cuidado,
+                    la noche trae a los más peligrosos. Un <strong>Giganotosaurus</strong>
+                    puede derribar todo tu esfuerzo en segundos.
+                </p>
+            </div>
+        </section>
+    </div>
 </body>
 </html>
