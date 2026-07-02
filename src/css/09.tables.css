@@ -1,0 +1,24 @@
+/* Solo afecta a las tablas dentro de la página 09-tables */
+main table {
+    margin: 1.5rem auto;  /* Centra la tabla horizontalmente */
+    border-collapse: collapse;
+    width: auto;
+    min-width: 300px;
+}
+
+main table,
+main th,
+main td {
+    border: 1px solid #000;  /* Borde negro */
+}
+
+main th,
+main td {
+    padding: 10px 15px;
+    text-align: left;
+}
+
+main caption {
+    margin-bottom: 8px;
+    font-weight: bold;
+}

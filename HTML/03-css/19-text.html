@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>19 - Text Properties</title>
+<link rel="stylesheet" href="../../src/css/03-css.css">
+<style>
+body .demo-text {
+padding: 1rem;
+margin: 1.5rem auto;
+border-left: 4px solid #a050ff;
+background: rgba(160, 80, 255, 0.12);
+border-radius: 0 12px 12px 0;
+}
+
+body .text-align-left { text-align: left; }
+body .text-align-center { text-align: center; }
+body .text-align-right { text-align: right; }
+body .text-align-justify { text-align: justify; }
+
+body .text-decoration-underline { text-decoration: underline; }
+body .text-decoration-line-through { text-decoration: line-through; }
+body .text-decoration-overline { text-decoration: overline; }
+body .text-decoration-none { text-decoration: none; color: #a050ff; }
+
+body .text-transform-uppercase { text-transform: uppercase; }
+body .text-transform-lowercase { text-transform: lowercase; }
+body .text-transform-capitalize { text-transform: capitalize; }
+
+body .text-indent {
+text-indent: 2em;
+}
+
+body .letter-spacing {
+letter-spacing: 4px;
+}
+
+body .line-height {
+line-height: 2.5;
+}
+
+body .word-spacing {
+word-spacing: 12px;
+}
+
+body .white-space-nowrap {
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+border: 1px dashed #a050ff;
+padding: 0.5rem;
+}
+
+body .text-shadow-demo {
+text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6), 0 0 15px rgba(160, 80, 255, 0.4);
+font-size: 2rem;
+font-weight: 700;
+}
+</style>
+</head>
+<body class="lesson-page">
+<a href="indexcss.html" class="btn-home" aria-label="Volver al índice de CSS">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+</a>
+<main>
+<header>
+<h1>19 - Text Properties</h1>
+<h2>CSS offers many properties to style and format text content.</h2>
+<ul>
+<li>text-align</li>
+<li>text-decoration</li>
+<li>text-transform</li>
+<li>text-indent</li>
+<li>letter-spacing</li>
+<li>line-height</li>
+<li>word-spacing</li>
+<li>white-space</li>
+<li>text-shadow</li>
+</ul>
+</header>
+<section>
+<div class="recuadro">
+<h3>text-align</h3>
+<div class="demo-text text-align-left">Alineado a la izquierda (por defecto)</div>
+<div class="demo-text text-align-center">Centrado horizontalmente</div>
+<div class="demo-text text-align-right">Alineado a la derecha</div>
+<div class="demo-text text-align-justify">Texto justificado: Este parrafo se estira para que ambas margenes queden alineadas, creando un bloque uniforme como en periodicos impresos.</div>
+
+<h3>text-decoration</h3>
+<div class="demo-text"><span class="text-decoration-underline">Subrayado con underline</span></div>
+<div class="demo-text"><span class="text-decoration-line-through">Tachado con line-through</span></div>
+<div class="demo-text"><span class="text-decoration-overline">Linea superior con overline</span></div>
+<div class="demo-text"><a href="#" class="text-decoration-none">Sin decoracion (none) - tipico para links</a></div>
+
+<h3>text-transform</h3>
+<div class="demo-text text-transform-uppercase">este texto se convierte en mayusculas</div>
+<div class="demo-text text-transform-lowercase">ESTE TEXTO PASA A MINUSCULAS</div>
+<div class="demo-text text-transform-capitalize">cada palabra inicia con mayuscula</div>
+
+<h3>text-indent</h3>
+<div class="demo-text text-indent">La primera linea de este parrafo tiene una sangria de 2em. El resto del texto fluye normalmente, ideal para articulos y documentos formales.</div>
+
+<h3>Espaciado</h3>
+<div class="demo-text letter-spacing">Espaciado entre letras ampliado (letter-spacing: 4px)</div>
+<div class="demo-text word-spacing">Palabras con espacio mayor (word-spacing: 12px)</div>
+<div class="demo-text line-height">Texto con interlineado amplio (line-height: 2.5) para mejorar la legibilidad en parrafos largos.</div>
+
+<h3>white-space y text-overflow</h3>
+<div class="demo-text white-space-nowrap">Este texto es muy largo y no se ajusta, se recorta con puntos suspensivos gracias a text-overflow: ellipsis</div>
+
+<h3>text-shadow</h3>
+<div class="demo-text text-shadow-demo">Sombra en texto</div>
+</div>
+</section>
+</main>
+</body>
+</html>

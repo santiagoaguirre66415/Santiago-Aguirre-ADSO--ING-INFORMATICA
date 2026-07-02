@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>34 - CSS Variables</title>
+<link rel="stylesheet" href="../../src/css/03-css.css">
+<style>
+:root {
+--purple-primary: #a050ff;
+--purple-dark: #4a1a7a;
+--purple-light: #c090ff;
+--purple-bg: rgba(160, 80, 255, 0.1);
+--radius-sm: 8px;
+--radius-md: 14px;
+--shadow-default: 0 4px 12px rgba(160, 80, 255, 0.2);
+}
+
+body .var-card {
+background: var(--purple-bg);
+border: 2px solid var(--purple-primary);
+border-radius: var(--radius-md);
+padding: 1.2rem;
+margin: 1rem 0;
+box-shadow: var(--shadow-default);
+}
+
+body .var-card h3 {
+color: var(--purple-primary);
+margin-bottom: 0.5rem;
+}
+
+body .var-btn {
+display: inline-block;
+padding: 0.6rem 1.5rem;
+border-radius: var(--radius-sm);
+background: var(--purple-primary);
+color: white;
+font-weight: 700;
+border: none;
+cursor: pointer;
+margin: 0.3rem;
+transition: transform 0.2s;
+}
+
+body .var-btn:hover {
+transform: scale(1.05);
+}
+
+body .var-btn-alt {
+background: var(--purple-dark);
+}
+
+body .var-box {
+width: 80px;
+height: 80px;
+background: var(--purple-light);
+border-radius: var(--radius-sm);
+display: inline-block;
+margin: 0.3rem;
+}
+
+body .var-box.dark {
+background: var(--purple-dark);
+}
+
+body .var-box.primary {
+background: var(--purple-primary);
+}
+
+body code {
+background: var(--purple-bg);
+padding: 0.1rem 0.4rem;
+border-radius: 4px;
+color: var(--purple-primary);
+font-family: monospace;
+}
+</style>
+</head>
+<body class="lesson-page">
+<a href="indexcss.html" class="btn-home" aria-label="Volver al índice de CSS">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+</a>
+<main>
+<header>
+<h1>34 - CSS Variables</h1>
+<h2>Custom properties (--var) store reusable values, making themes and maintenance easier.</h2>
+</header>
+<section>
+<div class="recuadro">
+<div class="var-card">
+<h3>Variables definidas en :root</h3>
+<code>--purple-primary: #a050ff;<br>--purple-dark: #4a1a7a;<br>--purple-light: #c090ff;<br>--radius-md: 14px;<br>--shadow-default: 0 4px 12px rgba(160,80,255,0.2);</code>
+</div>
+
+<div class="var-card">
+<h3>Reutilizando variables</h3>
+<div class="var-box primary"></div>
+<div class="var-box dark"></div>
+<div class="var-box" style="background: var(--purple-light);"></div>
+<p style="margin-top:0.5rem;"><code>background: var(--purple-primary)</code> etc.</p>
+</div>
+
+<div class="var-card">
+<h3>Variables en botones</h3>
+<button class="var-btn">Boton primario</button>
+<button class="var-btn var-btn-alt">Boton oscuro</button>
+<p style="margin-top:0.5rem;"><code>background: var(--purple-primary)</code> y <code>var(--purple-dark)</code></p>
+</div>
+
+<div class="var-card">
+<h3>Ventaja: cambio global</h3>
+<p style="color: var(--purple-dark);">Si cambias <code>--purple-primary</code> en <code>:root</code>, se actualiza en TODOS lados. Ideal para temas.</p>
+</div>
+</div>
+</section>
+</main>
+</body>
+</html>

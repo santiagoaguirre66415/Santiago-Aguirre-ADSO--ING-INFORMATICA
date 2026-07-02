@@ -1,0 +1,30 @@
+body {
+    background: #cf4711;
+    font-family: Arial, sans-serif;
+}
+
+#contenedor {
+    width: 400px;
+    margin: 40px auto;
+    padding: 15px;
+    border: 2px solid #999;
+    background: #f5f5f5;
+}
+
+.encabezado, .contenido, .pie {
+    background: #cfcfe0;
+    border: 1px solid #999;
+    text-align: center;
+    margin-bottom: 10px;
+    padding: 20px;
+    color: #777;
+    font-size: 20px;
+}
+
+.contenido {
+    height: 120px;
+}
+
+.pie {
+    padding: 10px;
+}

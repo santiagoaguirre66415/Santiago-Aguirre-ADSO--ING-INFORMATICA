@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>24 - Challenge Layout</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+background-color: #17a053;
+border: 8px solid white;
+font-family: 'Inter', sans-serif;
+}
+
+main {
+min-height: 100dvh;
+max-width: 1300px;
+margin: 0 auto;
+}
+
+div.logo {
+background: url(../../src/imgs/spriteweb.png);
+background-position: -20px -434px;
+height: 120px;
+margin: 1rem auto;
+width: 180px;
+background-repeat: no-repeat;
+}
+
+nav ul.menu {
+display: flex;
+justify-content: center;
+gap: 70px;
+list-style-type: none;
+margin: 0 1.5rem 40px 1.5rem;
+flex-wrap: wrap;
+text-align: center;
+}
+
+nav ul.menu li a {
+display: block;
+background-color: #0e7a3e;
+color: white;
+text-decoration: none;
+padding: 12px 47px;
+font-weight: 700;
+font-size: 1.2rem;
+letter-spacing: 0.04em;
+border-bottom: 3px solid white;
+transition: all 0.2s ease;
+}
+
+nav ul.menu li a:hover {
+background-color: #000000;
+border-bottom: 3px solid #ffcc00;
+color: white;
+}
+
+section.products {
+background-color: #1a7a44;
+border: 2px solid #2a9a5e;
+margin: 0 1.5rem 2rem 1.5rem;
+padding: 1.5rem;
+display: flex;
+gap: 1.2rem;
+justify-content: center;
+flex-wrap: wrap;
+}
+
+.product-card {
+width: 220px;
+border: 2px solid #4caf6e;
+overflow: hidden;
+background: #0e7a3e;
+position: relative;
+transition: all 0.2s ease;
+}
+
+.product-card .card-title {
+font-weight: 700;
+color: black;
+font-size: 1rem;
+padding: 8px 10px;
+background-color: rgba(245, 241, 241, 0.616);
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+z-index: 2;
+transition: background-color 0.2s ease;
+}
+
+.product-card:hover .card-title {
+background-color: rgba(180, 180, 180, 0.9);
+}
+
+.sprite-img {
+background: url(../../src/imgs/spriteweb.png) no-repeat;
+background-color: black;
+background-position: -500px -10px;
+background-size: 750px auto;
+height: 180px;
+width: 100%;
+}
+
+section.info {
+background-color: white;
+padding: 1.5rem 1rem;
+display: flex;
+align-items: center;
+gap: 1rem;
+flex-wrap: wrap;
+border: 10px solid #1a6e3a;
+margin: 0 1.5rem 1.5rem;
+}
+
+section.info:last-of-type {
+margin-bottom: 2.5rem;
+}
+
+.info-logo {
+background: url(../../src/imgs/spriteweb.png) no-repeat #ececec;
+background-position: -285px -495px;
+background-size: 800px auto;
+width: 90px;
+height: 90px;
+flex-shrink: 0;
+}
+
+.info-text {
+flex: 1;
+min-width: 200px;
+font-size: 0.92rem;
+color: #222;
+line-height: 1.65;
+text-align: justify;
+transition: color 0.2s ease;
+}
+
+.info-text:hover {
+color: #17a053;
+}
+
+.info-can {
+background: url(../../src/imgs/spriteweb.png) no-repeat #ececec;
+background-position: -77px -200px;
+background-size: 800px auto;
+width: 120px;
+height: 185px;
+flex-shrink: 0;
+}
+
+body:has(.product-card:hover) .info-text:not(:hover) {
+color: #0a0a0a;
+}
+
+footer {
+background-color: white;
+margin: 0 1.5rem 2rem 1.5rem;
+padding: 1.5rem 1rem 1rem;
+border: 2px solid white;
+}
+
+.footer-products {
+background: url(../../src/imgs/spriteweb.png) no-repeat;
+background-position: -490px -420px;
+background-size: 800px auto;
+width: 360px;
+height: 180px;
+margin: 0 auto 1rem auto;
+}
+
+nav ul.footer-menu {
+display: flex;
+justify-content: center;
+gap: 40px;
+list-style-type: none;
+flex-wrap: wrap;
+text-align: center;
+padding: 0.5rem 0;
+}
+
+nav ul.footer-menu li a {
+color: #222;
+text-decoration: none;
+font-weight: 100;
+font-size: 1.2rem;
+letter-spacing: 0.04em;
+padding-bottom: 4px;
+border-bottom: 2px solid transparent;
+transition: border-bottom 0.2s ease;
+}
+
+nav ul.footer-menu li a:hover {
+color: #222;
+border-bottom: 3px solid #0a4a20;
+}
+</style>
+</head>
+<body>
+<main>
+<div class="logo"></div>
+
+<nav>
+<ul class="menu">
+<li><a href="#">INICIO</a></li>
+<li><a href="#">NOSOTROS</a></li>
+<li><a href="#">PORTAFOLIO</a></li>
+<li><a href="#">SERVICIOS</a></li>
+<li><a href="#">CONTACTO</a></li>
+</ul>
+</nav>
+
+<section class="products">
+<div class="product-card">
+<div class="card-title">Sprite 01</div>
+<div class="card-img sprite-img"></div>
+</div>
+<div class="product-card">
+<div class="card-title">Sprite 02</div>
+<div class="card-img sprite-img"></div>
+</div>
+<div class="product-card">
+<div class="card-title">Sprite 03</div>
+<div class="card-img sprite-img"></div>
+</div>
+</section>
+
+<section class="info">
+<div class="info-logo"></div>
+<div class="info-text">
+Los sprites CSS son una técnica que consiste en combinar varias imágenes en un solo archivo y mostrar solo la parte necesaria mediante la propiedad background-position. Esto reduce el número de solicitudes HTTP al servidor y mejora significativamente el tiempo de carga de una página web, especialmente en proyectos con muchos iconos o elementos gráficos pequeños.
+</div>
+<div class="info-can"></div>
+</section>
+
+<section class="info">
+<div class="info-logo"></div>
+<div class="info-text">
+Para implementar un sprite se define una imagen de fondo compartida y se desplaza con valores negativos en background-position. Cada elemento muestra únicamente la porción correspondiente. Es importante calcular con precisión las coordenadas para evitar solapamientos entre las diferentes secciones del sprite.
+</div>
+<div class="info-can"></div>
+</section>
+
+<section class="info">
+<div class="info-logo"></div>
+<div class="info-text">
+Esta página de ejemplo demuestra un reto de maquetación usando sprites para todos los elementos visuales: el logo, las imágenes de productos y los iconos informativos. El esquema de colores verde mantiene una identidad visual coherente con la marca Sprite en toda la composición.
+</div>
+<div class="info-can"></div>
+</section>
+
+<footer>
+<div class="footer-products"></div>
+<nav>
+<ul class="footer-menu">
+<li><a href="#">INICIO</a></li>
+<li><a href="#">NOSOTROS</a></li>
+<li><a href="#">PORTAFOLIO</a></li>
+<li><a href="#">SERVICIOS</a></li>
+<li><a href="#">CONTACTO</a></li>
+</ul>
+</nav>
+</footer>
+</main>
+</body>
+</html>

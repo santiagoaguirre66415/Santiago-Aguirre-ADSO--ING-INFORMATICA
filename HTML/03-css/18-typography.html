@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>18 - Typography</title>
+<link rel="stylesheet" href="../../src/css/03-css.css">
+<style>
+body .font-demo {
+padding: 1rem;
+margin: 1rem auto;
+border-left: 4px solid #a050ff;
+background: rgba(160, 80, 255, 0.12);
+border-radius: 0 12px 12px 0;
+}
+
+body .font-serif { font-family: Georgia, 'Times New Roman', serif; }
+body .font-sans { font-family: 'Inter', Arial, sans-serif; }
+body .font-mono { font-family: 'Courier New', Consolas, monospace; }
+
+body .weight-light { font-weight: 300; }
+body .weight-normal { font-weight: 400; }
+body .weight-bold { font-weight: 700; }
+
+body .style-italic { font-style: italic; }
+body .style-normal { font-style: normal; }
+
+body .size-rem { font-size: 1.5rem; }
+body .size-em { font-size: 1.5em; }
+body .size-percent { font-size: 120%; }
+
+body .variant-small-caps { font-variant: small-caps; }
+
+body .color-demo {
+color: #a050ff;
+}
+</style>
+</head>
+<body class="lesson-page">
+<a href="indexcss.html" class="btn-home" aria-label="Volver al índice de CSS">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+</a>
+<main>
+<header>
+<h1>18 - Typography</h1>
+<h2>CSS font properties control the appearance of text: family, size, weight, style, and variant.</h2>
+<ul>
+<li>font-family</li>
+<li>font-size</li>
+<li>font-weight</li>
+<li>font-style</li>
+<li>font-variant</li>
+<li>color</li>
+</ul>
+</header>
+<section>
+<div class="recuadro">
+<h3>font-family</h3>
+<div class="font-demo font-serif">Georgia, serif: Tipografia con remates clasica</div>
+<div class="font-demo font-sans">Inter, sans-serif: Tipografia sin remates moderna</div>
+<div class="font-demo font-mono">Courier New, monospace: Espaciado fijo para codigo</div>
+
+<h3>font-weight</h3>
+<div class="font-demo weight-light">Peso ligero (300)</div>
+<div class="font-demo weight-normal">Peso normal (400)</div>
+<div class="font-demo weight-bold">Peso negrita (700)</div>
+
+<h3>font-style</h3>
+<div class="font-demo style-italic">Texto en cursiva (italic)</div>
+<div class="font-demo style-normal">Texto normal (normal)</div>
+
+<h3>font-size</h3>
+<div class="font-demo size-rem">1.5rem - relativo a la raiz</div>
+<div class="font-demo size-em">1.5em - relativo al padre</div>
+<div class="font-demo size-percent">120% - porcentaje del padre</div>
+
+<h3>font-variant</h3>
+<div class="font-demo variant-small-caps">small-caps: versalitas en minusculas</div>
+
+<h3>color (texto)</h3>
+<div class="font-demo color-demo">color: #a050ff - color de texto morado</div>
+</div>
+</section>
+</main>
+</body>
+</html>

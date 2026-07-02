@@ -1,0 +1,47 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #e6510c;
+}
+
+header, nav, footer {
+    background: #777;
+    color: rgb(231, 230, 229);
+    text-align: center;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.container {
+    display: flex;
+    gap: 10px;
+    margin: 10px;
+}
+
+article {
+    flex: 2;
+    background: #666;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+section {
+    margin-top: 10px;
+    background: #444;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+aside {
+    flex: 1;
+    background: #888;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+footer {
+    margin: 10px;
+}

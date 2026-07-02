@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>21 - Lists</title>
+<link rel="stylesheet" href="../../src/css/03-css.css">
+<style>
+.list-demo {
+padding: 1rem 1.5rem;
+margin: 1.5rem auto;
+background: rgba(0, 100, 60, 0.25);
+border-radius: 14px;
+border: 1px solid rgba(0, 214, 143, 0.2);
+}
+
+.list-demo-title {
+color: #00d68f;
+font-weight: 700;
+font-family: monospace;
+font-size: 0.95rem;
+margin-bottom: 0.5rem;
+}
+
+.ul-disc { list-style-type: disc; }
+.ul-circle { list-style-type: circle; }
+.ul-square { list-style-type: square; }
+.ul-none { list-style-type: none; padding-left: 0; }
+
+.ol-decimal { list-style-type: decimal; }
+.ol-roman { list-style-type: upper-roman; }
+.ol-alpha { list-style-type: lower-alpha; }
+.ol-greek { list-style-type: lower-greek; }
+
+.list-inside { list-style-position: inside; }
+.list-outside { list-style-position: outside; }
+
+.list-image {
+list-style-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Ccircle cx='6' cy='6' r='5' fill='%2300d68f'/%3E%3C/svg%3E");
+}
+
+.custom-counter {
+counter-reset: paso;
+list-style: none;
+padding-left: 0;
+}
+
+.custom-counter li {
+counter-increment: paso;
+padding: 0.6rem 0.8rem 0.6rem 2.5rem;
+margin: 0.4rem 0;
+background: rgba(0, 214, 143, 0.1);
+border-radius: 10px;
+position: relative;
+border-left: 3px solid #00d68f;
+}
+
+.custom-counter li::before {
+content: counter(paso);
+position: absolute;
+left: 0.5rem;
+top: 50%;
+transform: translateY(-50%);
+background: #00d68f;
+color: #003018;
+width: 1.6rem;
+height: 1.6rem;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+font-weight: 700;
+font-size: 0.85rem;
+}
+
+dl.custom-dl dt {
+color: #00d68f;
+font-weight: 700;
+margin-top: 1rem;
+padding: 0.5rem;
+background: rgba(0, 214, 143, 0.1);
+border-radius: 8px;
+}
+
+dl.custom-dl dd {
+margin-left: 1rem;
+padding: 0.4rem 0.8rem;
+border-left: 2px solid rgba(26, 143, 212, 0.5);
+color: #a0e0c0;
+}
+</style>
+</head>
+<body class="lesson-page">
+<a href="indexcss.html" class="btn-home" aria-label="Volver al índice de CSS">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+</a>
+<main>
+<header>
+<h1>21 - Lists</h1>
+<h2>CSS allows you to control the style, position, and markers of HTML lists.</h2>
+<ul>
+<li>list-style-type</li>
+<li>list-style-position</li>
+<li>list-style-image</li>
+<li>counter-reset / counter-increment</li>
+</ul>
+</header>
+<section>
+<div class="recuadro">
+<h3>list-style-type (ul)</h3>
+<div style="display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center;">
+<div class="list-demo">
+<div class="list-demo-title">disc (default)</div>
+<ul class="ul-disc">
+<li>HTML</li>
+<li>CSS</li>
+<li>JavaScript</li>
+</ul>
+</div>
+<div class="list-demo">
+<div class="list-demo-title">circle</div>
+<ul class="ul-circle">
+<li>HTML</li>
+<li>CSS</li>
+<li>JavaScript</li>
+</ul>
+</div>
+<div class="list-demo">
+<div class="list-demo-title">square</div>
+<ul class="ul-square">
+<li>HTML</li>
+<li>CSS</li>
+<li>JavaScript</li>
+</ul>
+</div>
+<div class="list-demo">
+<div class="list-demo-title">none</div>
+<ul class="ul-none">
+<li>HTML</li>
+<li>CSS</li>
+<li>JavaScript</li>
+</ul>
+</div>
+</div>
+
+<h3>list-style-type (ol)</h3>
+<div style="display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center;">
+<div class="list-demo">
+<div class="list-demo-title">decimal</div>
+<ol class="ol-decimal">
+<li>Paso uno</li>
+<li>Paso dos</li>
+<li>Paso tres</li>
+</ol>
+</div>
+<div class="list-demo">
+<div class="list-demo-title">upper-roman</div>
+<ol class="ol-roman">
+<li>Primero</li>
+<li>Segundo</li>
+<li>Tercero</li>
+</ol>
+</div>
+<div class="list-demo">
+<div class="list-demo-title">lower-alpha</div>
+<ol class="ol-alpha">
+<li>Item a</li>
+<li>Item b</li>
+<li>Item c</li>
+</ol>
+</div>
+<div class="list-demo">
+<div class="list-demo-title">lower-greek</div>
+<ol class="ol-greek">
+<li>Alpha</li>
+<li>Beta</li>
+<li>Gamma</li>
+</ol>
+</div>
+</div>
+
+<h3>list-style-position</h3>
+<div style="display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center;">
+<div class="list-demo">
+<div class="list-demo-title">inside</div>
+<ul class="list-inside">
+<li>El marcador esta dentro del contenido</li>
+<li>Afecta la alineacion del texto</li>
+</ul>
+</div>
+<div class="list-demo">
+<div class="list-demo-title">outside (default)</div>
+<ul class="list-outside">
+<li>El marcador queda fuera del contenido</li>
+<li>El texto se alinea con sangria</li>
+</ul>
+</div>
+</div>
+
+<h3>list-style-image</h3>
+<div class="list-demo">
+<ul class="list-image">
+<li>Marcador personalizado (circulo verde SVG)</li>
+<li>Se usa una imagen SVG como viñeta</li>
+<li>Funciona con url() o data URI</li>
+</ul>
+</div>
+
+<h3>Contadores CSS personalizados</h3>
+<ol class="custom-counter">
+<li>Analizar los requisitos del proyecto</li>
+<li>Diseñar la estructura HTML semantica</li>
+<li>Aplicar estilos CSS progresivamente</li>
+<li>Agregar interactividad con JavaScript</li>
+<li>Realizar pruebas en diferentes navegadores</li>
+</ol>
+
+<h3>Description List (dl)</h3>
+<dl class="custom-dl">
+<dt>HTML</dt>
+<dd>Lenguaje de marcado para la estructura del contenido web</dd>
+<dt>CSS</dt>
+<dd>Hojas de estilo en cascada para la presentacion visual</dd>
+<dt>JavaScript</dt>
+<dd>Lenguaje de programacion para comportamiento e interactividad</dd>
+</dl>
+</div>
+</section>
+</main>
+</body>
+</html>

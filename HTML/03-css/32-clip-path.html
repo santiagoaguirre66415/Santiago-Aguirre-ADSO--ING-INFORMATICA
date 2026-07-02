@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>32 - Clip Path</title>
+<link rel="stylesheet" href="../../src/css/03-css.css">
+<style>
+body .clip-grid {
+display: flex;
+flex-wrap: wrap;
+gap: 1.5rem;
+justify-content: center;
+margin: 1rem 0;
+}
+
+body .clip-item {
+text-align: center;
+}
+
+body .clip-item div {
+width: 150px;
+height: 150px;
+background: linear-gradient(135deg, #a050ff, #4a1a7a);
+display: flex;
+align-items: center;
+justify-content: center;
+color: white;
+font-weight: 700;
+}
+
+body .clip-item p {
+font-family: monospace;
+font-size: 0.75rem;
+margin-top: 0.4rem;
+color: #a050ff;
+}
+
+body .cp-circle { clip-path: circle(50%); }
+body .cp-ellipse { clip-path: ellipse(50% 40%); }
+body .cp-triangle { clip-path: polygon(50% 0%, 0% 100%, 100% 100%); }
+body .cp-hex { clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%); }
+body .cp-star { clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); }
+body .cp-rhombus { clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); }
+body .cp-frame { clip-path: inset(10% 10% 10% 10% round 20px); }
+body .cp-pacman { clip-path: polygon(100% 0%, 100% 100%, 50% 50%, 0% 100%, 0% 0%); }
+
+body .clip-img {
+width: 200px;
+height: 200px;
+object-fit: cover;
+clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+border-radius: 0;
+margin: 0 auto;
+display: block;
+}
+</style>
+</head>
+<body class="lesson-page">
+<a href="indexcss.html" class="btn-home" aria-label="Volver al índice de CSS">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+</a>
+<main>
+<header>
+<h1>32 - Clip Path</h1>
+<h2>clip-path lets you clip an element to a basic shape or SVG path.</h2>
+</header>
+<section>
+<div class="recuadro">
+<h3>Formas basicas con clip-path</h3>
+<div class="clip-grid">
+<div class="clip-item"><div class="cp-circle">circle</div><p>circle(50%)</p></div>
+<div class="clip-item"><div class="cp-ellipse">ellipse</div><p>ellipse(50% 40%)</p></div>
+<div class="clip-item"><div class="cp-triangle">triangle</div><p>polygon 3 lados</p></div>
+<div class="clip-item"><div class="cp-hex">hex</div><p>polygon 6 lados</p></div>
+<div class="clip-item"><div class="cp-star">star</div><p>polygon estrella</p></div>
+<div class="clip-item"><div class="cp-rhombus">rombo</div><p>polygon 4 lados</p></div>
+<div class="clip-item"><div class="cp-frame">frame</div><p>inset con round</p></div>
+<div class="clip-item"><div class="cp-pacman">pacman</div><p>polygon pacman</p></div>
+</div>
+<h3>clip-path en imagen</h3>
+<img src="../../src/imgs/dk.png" class="clip-img">
+</div>
+</section>
+</main>
+</body>
+</html>

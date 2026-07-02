@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>37 - Animations</title>
+    <!-- HOJA DE ESTILOS EXTERNA (no tocar) -->
+    <link rel="stylesheet" href="../../src/css/03-css.css">
+    <style>
+        /* ============================================================
+                   ESTILOS DE CENTRADO - Controla cómo se alinea la caja
+                   ============================================================ */
+
+        /* Contenedor principal de la sección */
+        main section {
+            display: flex;           /* Activa Flexbox para centrar */
+            justify-content: center; /* Centra horizontalmente */
+            align-items: center;     /* Centra verticalmente */
+            min-height: 80vh;        /* Altura mínima: 80% del viewport */
+            /* 👆 CAMBIA "80vh" para más/menos espacio vertical */
+        }
+
+        /* Caja contenedora (.recuadro) - envuelve la jungla */
+        main section div.recuadro {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%; /* Ocupa todo el ancho disponible */
+        }
+
+        /* ============================================================
+                   ESTILOS DE LA JUNGLA - Contenedor principal del juego
+                   ============================================================ */
+
+        main section div.jungle {
+            /* ⚠️ IMPORTANTE: Fondo de la jungla */
+            background: url(../../src/imgs/jungle.png) no-repeat center;
+            /*        👆 CAMBIA la ruta si tu imagen está en otra carpeta */
+            background-size: cover; /* Ajusta la imagen para que cubra todo */
+            /*        👆 CAMBIA a "contain" para ver la imagen completa */
+
+            border-radius: 4px;      /* Esquinas redondeadas */
+            position: relative;      /* Necesario para posicionar hijos absolutos */
+            height: 471px;           /* 👆 CAMBIA la altura de la caja */
+            width: 380px;            /* 👆 CAMBIA el ancho de la caja */
+            overflow: hidden;        /* Oculta lo que se salga de la caja */
+            margin: 0 auto;          /* Centra horizontalmente */
+        }
+
+        /* ============================================================
+                   ESTILOS DE LAS IMÁGENES DENTRO DE LA JUNGLA
+                   ============================================================ */
+
+        /* Todas las imágenes dentro de .jungle */
+        main section div.jungle img {
+            border-radius: 0%;       /* Sin bordes redondeados */
+            border: none;            /* Sin borde */
+            position: absolute;      /* Posicionamiento absoluto */
+            /* 👆 Importante: TODAS las imágenes se posicionan con top/left */
+        }
+
+        /* ============================================================
+                   LOGO - La imagen "logo-dk.png"
+                   ============================================================ */
+
+        main section div.jungle img.logo {
+            top: 20px;              /* 👆 CAMBIA: distancia desde arriba */
+            left: 30px;             /* 👆 CAMBIA: distancia desde la izquierda */
+            height: 70px;           /* 👆 CAMBIA: altura del logo */
+            object-fit: contain;    /* Mantiene la proporción */
+            z-index: 9;             /* Capa superior (por encima de todo) */
+            width: 317px;           /* 👆 CAMBIA: ancho del logo */
+            animation: 1s animLogo ease-in infinite;
+            /*          👆 DURACIÓN: 1 segundo */
+            /*          👆 TIPO: ease-in (empieza lento, acelera) */
+            /*          👆 REPETICIÓN: infinite (sin fin) */
+        }
+
+        /* ============================================================
+                   DONKEY KONG - La imagen "dk.png"
+                   ============================================================ */
+
+        main section div.jungle img.dk {
+            top: 120px;             /* 👆 CAMBIA: posición vertical */
+            left: 120px;            /* 👆 CAMBIA: posición horizontal */
+            width: 140px;           /* 👆 CAMBIA: tamaño de DK */
+            object-fit: contain;
+            z-index: 8;             /* Capa intermedia */
+            animation: 2s animDK ease-out infinite;
+            /*          👆 DURACIÓN: 2 segundos */
+            /*          👆 TIPO: ease-out (empieza rápido, frena) */
+        }
+
+       /* ============================================================
+   CONTENEDOR DE MOVIMIENTO - Para Ryno
+   ============================================================ */
+
+main section div.jungle div.move {
+    position: absolute;
+    top: 240px;             /* 👈 Esto mueve TODO el contenedor hacia arriba/abajo */
+                            /*    Si cambias esto, Ryno se mueve entero */
+    left: 0;
+    width: 100%;
+    height: 150px;          /* 👈 👈 👈 ¡ESTA ES LA ALTURA DE MOVIMIENTO! */
+                            /*    Si Ryno se corta al saltar, AUMENTA este valor */
+                            /*    Ejemplo: height: 200px; */
+}
+
+/* ============================================================
+   RYNO - La imagen "ryno.png" (el que se mueve)
+   ============================================================ */
+
+main section div.jungle div.move img.ryno {
+    width: 170px;
+    object-fit: contain;
+    position: absolute;
+    top: 0;                /* 👈 Posición inicial vertical DENTRO del contenedor */
+                           /*    Normalmente va en 0 */
+    left: 0;
+    animation: 3s animRyno linear infinite;
+}
+
+        /* ============================================================
+                   ANIMACIONES - Los movimientos
+                   ============================================================ */
+
+        /* ------------------------------------------------------------
+                   ANIMACIÓN DEL LOGO - Escala (crece y vuelve)
+                   ------------------------------------------------------------ */
+        @keyframes animLogo {
+            0%, 10% {               /* Del 0% al 10% del tiempo */
+                transform: scale(1); /* Tamaño normal */
+            }
+            50% {                   /* En la mitad del tiempo (50%) */
+                transform: scale(1.2); /* 👆 CAMBIA: 1.2 = 20% más grande */
+                /* Prueba: 1.5 = 50% más grande, 2 = 100% más grande */
+            }
+        }
+
+        /* ------------------------------------------------------------
+                   ANIMACIÓN DE DK - Salta y gira
+                   ------------------------------------------------------------ */
+        @keyframes animDK {
+            0% {                    /* Inicio */
+                top: 130px;         /* Posición inicial */
+                transform: rotateX(0deg); /* Sin rotación */
+            }
+            40% {                   /* 40% del tiempo */
+                top: 80px;          /* 👆 CAMBIA: altura del salto */
+                transform: rotateX(0deg);
+            }
+            50% {                   /* 50% del tiempo - punto máximo */
+                top: 80px;          /* En la cima del salto */
+                transform: rotateX(360deg); /* 👆 CAMBIA: grados de giro */
+                /* 360deg = una vuelta completa */
+                /* 720deg = dos vueltas */
+            }
+            60% {                   /* 60% del tiempo */
+                top: 80px;          /* Sigue en la cima */
+                transform: rotateX(360deg);
+            }
+            100% {                  /* Final */
+                top: 130px;         /* Vuelve a la posición inicial */
+                transform: rotateX(360deg);
+            }
+        }
+
+        /* ------------------------------------------------------------
+                   ANIMACIÓN DE RYNO - Camina de izquierda a derecha
+                   ------------------------------------------------------------ */
+        @keyframes animRyno {
+            /* 0% = INICIO del movimiento */
+            0% {
+                left: 0;            /* Posición inicial: izquierda */
+                top: 0;             /* Posición inicial: arriba */
+                transform: scaleX(1) translateY(0);
+                /* scaleX(1) = mira a la derecha */
+                /* translateY(0) = sin movimiento vertical */
+            }
+            10% {
+                top: -6px;          /* 👆 CAMBIA: -6px = sube 6px (salta) */
+                transform: scaleX(1) translateY(0);
+            }
+            20% {
+                top: 0;             /* Vuelve a la posición normal */
+                transform: scaleX(1) translateY(0);
+            }
+            22% {
+                left: 100px;        /* 👆 CAMBIA: posición horizontal */
+                top: 0;
+                transform: scaleX(1) translateY(0);
+            }
+            25% {
+                left: 120px;        /* 👆 CAMBIA: posición horizontal */
+                top: -110px;        /* 👆 CAMBIA: altura del salto grande */
+                transform: scaleX(1) translateY(0);
+            }
+            28% {
+                left: 140px;        /* 👆 CAMBIA: posición horizontal */
+                top: 0;
+                transform: scaleX(1) translateY(0);
+            }
+            40% {
+                left: 200px;        /* 👆 CAMBIA: posición horizontal */
+                top: -6px;          /* Pequeño salto */
+                transform: scaleX(1) translateY(0);
+            }
+            50% {
+                left: 240px;        /* 👆 CAMBIA: punto más a la derecha */
+                top: 0;
+                transform: scaleX(1) translateY(0);
+            }
+            55% {
+                left: 235px;        /* Empieza a retroceder */
+                top: -6px;
+                transform: scaleX(-1) translateY(0);
+                /* 👆 scaleX(-1) = ¡GIRA 180°! (mira a la izquierda) */
+            }
+            60% {
+                left: 220px;
+                top: 0;
+                transform: scaleX(-1) translateY(0);
+            }
+            72% {
+                left: 140px;
+                top: 0;
+                transform: scaleX(-1) translateY(0);
+            }
+            75% {
+                left: 120px;        /* 👆 CAMBIA: posición horizontal */
+                top: -110px;        /* 👆 CAMBIA: salto grande de vuelta */
+                transform: scaleX(-1) translateY(0);
+            }
+            78% {
+                left: 100px;
+                top: 0;
+                transform: scaleX(-1) translateY(0);
+            }
+            85% {
+                left: 50px;
+                top: -6px;
+                transform: scaleX(-1) translateY(0);
+            }
+            100% {
+                left: 0;            /* Vuelve al punto inicial */
+                top: 0;
+                transform: scaleX(-1) translateY(0);
+                /* Termina mirando a la izquierda */
+            }
+        }
+
+        /* ============================================================
+                   ⚠️ PROBLEMA DE LOS PNG CON FONDO BLANCO
+                   ============================================================
+                   SOLUCIÓN: Las imágenes PNG con fondo blanco necesitan
+                   que se les quite el fondo en un editor de imágenes
+                   (Photoshop, GIMP, Photopea, etc.)
+                   
+                   OPCIONES:
+                   1. Usar imágenes con fondo transparente
+                   2. Aplicar un filtro CSS para eliminar el blanco:
+                      mix-blend-mode: multiply;
+                      (NO funciona en todos los navegadores)
+                   3. Usar formato SVG o WebP con transparencia
+                   
+                   Para aplicar el filtro (solución temporal):
+                   main section div.jungle img {
+                       mix-blend-mode: multiply;
+                   }
+        ============================================================ */
+    </style>
+</head>
+<body class="lesson-page">
+    <!-- BOTÓN DE VOLVER (no tocar) -->
+    <a href="indexcss.html" class="btn-home" aria-label="Volver al índice de CSS">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </a>
+    <main>
+        <!-- ENCABEZADO (no tocar) -->
+        <header>
+            <h1>37 - Animations</h1>
+            <h2>Lets an element gradually change from one style to another.</h2>
+        </header>
+
+        <!-- SECCIÓN PRINCIPAL -->
+        <section>
+            <!-- CONTENEDOR RECUADRO -->
+            <div class="recuadro">
+                <!-- CONTENEDOR JUNGLA - Aquí están las imágenes -->
+                <div class="jungle">
+                    <!-- LOGO -->
+                    <img src="../../src/imgs/logo-dk.png" class="logo" alt="Logo DK">
+                    <!-- DONKEY KONG -->
+                    <img src="../../src/imgs/dk.png" class="dk" alt="Donkey Kong">
+                    <!-- CONTENEDOR DE MOVIMIENTO DE RYNO -->
+                    <div class="move">
+                        <!-- RYNO (el que se mueve) -->
+                        <img src="../../src/imgs/ryno.png" class="ryno" alt="Ryno">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

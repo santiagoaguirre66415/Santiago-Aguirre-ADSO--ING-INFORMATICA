@@ -1,0 +1,37 @@
+.table-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0;
+    padding: 1rem;
+}
+
+.complex-table {
+    border-collapse: collapse;
+    background-color: #000000;
+    width: auto;
+    min-width: 800px;
+}
+
+.complex-table td {
+    border: 2px solid #ffffff;
+    padding: 1.5rem 0.5rem;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.cell-gray {
+    background-color: #3a3a3a;
+    color: #e0e0e0;
+}
+
+.cell-black {
+    background-color: #000000;
+}
+
+.emoji-cell {
+    font-size: 2rem;
+    text-align: center;
+    vertical-align: middle;
+    color: white;
+}

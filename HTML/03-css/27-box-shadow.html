@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>27 - Box Shadow</title>
+<link rel="stylesheet" href="../../src/css/03-css.css">
+<style>
+body div.box {
+border-radius: 20%;
+height: 200px;
+width: 200px;
+background-color: rgba(160, 80, 255, 0.2);
+margin: 0 auto;
+}
+
+body div.box1 {
+box-shadow: 0 0 12px #a050ff;
+}
+
+body div.box2 {
+box-shadow: -10px -10px 24px 0 #7a2acc;
+}
+
+body div.box3 {
+box-shadow: 0 0 20px #c090ff;
+}
+
+body div.box4 {
+box-shadow: 4px 4px 0 #a050ff,
+8px 8px 0 #7a2acc,
+12px 12px 0 #4a1a7a;
+}
+
+body div.images img {
+width: 200px;
+border-radius: 12px;
+}
+
+body div.images {
+display: flex;
+justify-content: center;
+margin-block: 2rem;
+gap: 1rem;
+flex-wrap: wrap;
+}
+
+body div.images img:first-child {
+box-shadow: 0 0 12px #a050ff;
+}
+
+body div.images img:last-child {
+filter: drop-shadow(0 0 12px #a050ff);
+}
+</style>
+</head>
+<body class="lesson-page">
+<a href="indexcss.html" class="btn-home" aria-label="Volver al índice de CSS">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+</a>
+<main>
+<header>
+<h1>27 - Box Shadow</h1>
+<h2>Property attaches one or more shadows to an element.</h2>
+</header>
+<section>
+<div class="recuadro">
+<h3>box-shadow: 0 0 12px #a050ff</h3>
+<br>
+<div class="box box1"></div>
+<br>
+<h3>box-shadow: -10px -10px 24px 0 #7a2acc</h3>
+<br>
+<div class="box box2"></div>
+<br>
+<h3>box-shadow: 0 0 20px #c090ff</h3>
+<br>
+<div class="box box3"></div>
+<br>
+<h3>box-shadow: multiple</h3>
+<br>
+<div class="box box4"></div>
+<br>
+<h3>box-shadow vs drop-shadow</h3>
+<br>
+<div class="images">
+<img src="../../src/imgs/masterchief.png" width="200">
+<img src="../../src/imgs/masterchief.png" width="200">
+</div>
+</div>
+</section>
+</main>
+</body>
+</html>

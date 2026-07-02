@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>14 - Background</title>
+    <link rel="stylesheet" href="../../src/css/03-css.css">
+    <style>
+        main {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 1.5rem;
+            border: 1px solid #ccc;
+            border-radius: 16px;
+        }
+        header {
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+        }
+        header h1 {
+            font-size: 1.8rem;
+            margin: 0;
+            color: #222;
+        }
+        header h2 {
+            font-weight: normal;
+            margin: 0.3rem 0;
+            font-size: 1rem;
+            color: #555;
+        }
+        section {
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+        }
+        .demo-block {
+            border: 1px solid #ccc;
+            padding: 1rem;
+            background: #fefefe;
+            border-radius: 12px;
+        }
+        .demo-title {
+            font-weight: bold;
+            font-family: monospace;
+            background: #eaeef2;
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            border-radius: 6px;
+            color: #333;
+        }
+        code {
+            background: #f1f1f1;
+            padding: 0.1rem 0.3rem;
+            font-family: monospace;
+        }
+        .demo-box {
+            width: 100%;
+            height: 150px;
+            border: 1px solid #999;
+            margin: 10px 0;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            background-color: #eaeef2;
+            font-weight: bold;
+            color: #111;
+            border-radius: 8px;
+        }
+        .note {
+            color: #555;
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+        .attach-demo {
+            height: 200px;
+            overflow-y: auto;
+            border: 1px solid #888;
+            margin: 10px 0;
+            padding: 10px;
+            background-image: url(../../src/imgs/dk.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            color: white;
+            font-weight: bold;
+            text-shadow: 1px 1px 0 black;
+            border-radius: 8px;
+        }
+        .attach-scroll { background-attachment: scroll; }
+        .attach-fixed { background-attachment: fixed; }
+        .attach-local { background-attachment: local; }
+        .fake-text {
+            background: rgba(0,0,0,0.6);
+            padding: 8px;
+            margin-top: 120px;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+    <a href="indexcss.html" class="btn-home" aria-label="Volver al índice de CSS">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </a>
+    <main>
+        <header>
+            <h1>14 - Background</h1>
+            <h2>- background-color</h2>
+            <h2>- background-image</h2>
+            <h2>- background-repeat</h2>
+            <h2>- background-position</h2>
+            <h2>- background-size</h2>
+            <h2>- background-attachment</h2>
+        </header>
+        <section>
+
+            <div class="demo-block">
+                <div class="demo-title">background-color</div>
+                <div class="demo-box" style="background-color: #ffddaa; background-image: none;">
+                    Fondo solido: #ffddaa
+                </div>
+                <div class="note">background-color: #ffddaa;</div>
+            </div>
+
+            <div class="demo-block">
+                <div class="demo-title">background-image</div>
+                <div class="demo-box" style="background-image: url(../../src/imgs/dk.png); background-repeat: no-repeat; background-position: left top; background-size: auto;">
+                    Imagen de fondo (sin repeticion)
+                </div>
+                <div class="note">background-image: url(../../src/imgs/dk.png);</div>
+            </div>
+
+            <div class="demo-block">
+                <div class="demo-title">background-repeat</div>
+                <div class="demo-box" style="background-image: url(../../src/imgs/dk.png); background-repeat: repeat; background-size: 60px auto; background-color: #f5f0e0;">
+                    repeat (horizontal y vertical)
+                </div>
+                <div class="demo-box" style="background-image: url(../../src/imgs/dk.png); background-repeat: repeat-x; background-size: 60px auto; background-color: #f5f0e0;">
+                    repeat-x (solo horizontal)
+                </div>
+                <div class="demo-box" style="background-image: url(../../src/imgs/dk.png); background-repeat: repeat-y; background-size: 60px auto; background-color: #f5f0e0;">
+                    repeat-y (solo vertical)
+                </div>
+                <div class="demo-box" style="background-image: url(../../src/imgs/dk.png); background-repeat: no-repeat; background-size: 60px auto; background-color: #f5f0e0;">
+                    no-repeat (sin repeticion)
+                </div>
+                <div class="note">background-repeat: repeat | repeat-x | repeat-y | no-repeat;</div>
+            </div>
+
+            <div class="demo-block">
+                <div class="demo-title">background-position</div>
+                <div class="demo-box" style="background-image: url(../../src/imgs/dk.png); background-repeat: no-repeat; background-position: left top; background-size: 80px;">
+                    left top
+                </div>
+                <div class="demo-box" style="background-image: url(../../src/imgs/dk.png); background-repeat: no-repeat; background-position: center center; background-size: 80px;">
+                    center center
+                </div>
+                <div class="demo-box" style="background-image: url(../../src/imgs/dk.png); background-repeat: no-repeat; background-position: right bottom; background-size: 80px;">
+                    right bottom
+                </div>
+                <div class="note">background-position: left top | center | right bottom, etc.</div>
+            </div>
+
+            <div class="demo-block">
+                <div class="demo-title">background-size</div>
+                <div class="demo-box" style="background-image: url(../../src/imgs/dk.png); background-repeat: no-repeat; background-size: auto; background-color: #f5f0e0;">
+                    auto (tamaño original)
+                </div>
+                <div class="demo-box" style="background-image: url(../../src/imgs/dk.png); background-repeat: no-repeat; background-size: cover;">
+                    cover (cubre todo el area, puede recortar)
+                </div>
+                <div class="demo-box" style="background-image: url(../../src/imgs/dk.png); background-repeat: no-repeat; background-size: contain;">
+                    contain (ajusta sin recortar, deja bordes)
+                </div>
+                <div class="demo-box" style="background-image: url(../../src/imgs/dk.png); background-repeat: no-repeat; background-size: 100px 80px;">
+                    medidas fijas: 100px 80px
+                </div>
+                <div class="note">background-size: auto | cover | contain | ancho alto;</div>
+            </div>
+
+            <div class="demo-block">
+                <div class="demo-title">background-attachment</div>
+                <p style="color:#555;">Controla si la imagen de fondo se desplaza con el contenido o permanece fija.</p>
+
+                <h4 style="color:#333;">scroll (por defecto)</h4>
+                <div class="attach-demo attach-scroll">
+                    <div class="fake-text">La imagen se desplaza con el scroll del elemento.</div>
+                </div>
+
+                <h4 style="color:#333;">fixed</h4>
+                <div class="attach-demo attach-fixed">
+                    <div class="fake-text">La imagen permanece fija en la ventana (no se mueve al hacer scroll).</div>
+                </div>
+
+                <h4 style="color:#333;">local</h4>
+                <div class="attach-demo attach-local">
+                    <div class="fake-text">La imagen se desplaza con el contenido (incluyendo el scroll interno).</div>
+                </div>
+
+                <div class="note">background-attachment: scroll | fixed | local;</div>
+                <div class="note">Prueba: Haz scroll dentro de cada caja para ver el comportamiento.</div>
+            </div>
+
+        </section>
+    </main>
+</body>
+</html>

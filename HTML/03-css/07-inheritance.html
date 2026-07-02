@@ -6,45 +6,11 @@
     <title>07 - Inheritance</title>
     <link rel="stylesheet" href="../../src/css/03-css.css" />
     <style>
-        .inheritance-demo {
-            display: grid;
-            gap: 1rem;
-        }
-
-        .inheritance-card {
-            padding: 1rem;
-            border-radius: 1rem;
-            background: rgba(241, 101, 41, 0.08);
-            border: 1px solid rgba(241, 101, 41, 0.18);
-            color: #4a220d;
-            font-family: 'Nunito', sans-serif;
-        }
-
-        .inheritance-card h3 {
-            margin: 0 0 0.75rem;
-            color: inherit;
-            font-size: 1.4rem;
-        }
-
-        .inheritance-card ul,
-        .inheritance-card ol {
-            margin: 0.25rem 0 0.75rem;
-            padding-left: 1.25rem;
-            color: inherit;
-        }
-
-        .inheritance-card li {
-            margin: 0.25rem 0;
-        }
-
-        .inheritance-card .accent {
-            color: #be3a10;
-            font-weight: 700;
-        }
-
-        .inheritance-card .child-note {
-            margin: 0;
-            color: rgba(47, 19, 10, 0.82);
+        section {
+            color: rgb(255, 255, 255);
+            li.important{
+                color : palegreen
+            }
         }
     </style>
 </head>
@@ -53,7 +19,6 @@
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-    <span class="sr-only">Volver</span>
     </a>
     <main>
         <header>
@@ -61,31 +26,21 @@
             <h2>This way we can pass down certain CSS properties from parent elements to their child elements.</h2>
         </header>
         <section>
-            <div class="inheritance-demo">
-                <article class="inheritance-card">
-                    <h3>VideoGames</h3>
-                    <ul>
-                        <li class="important">PlayStation
-                            <ol>
-                                <li>PS4</li>
-                                <li>PS5</li>
-                            </ol>
-                        </li>
-                        <li>Xbox
-                            <ol>
-                                <li>Xbox One</li>
-                                <li>Xbox Series X</li>
-                            </ol>
-                        </li>
-                        <li>Nintendo
-                            <ol>
-                                <li>Switch</li>
-                                <li>Switch Lite</li>
-                            </ol>
-                        </li>
-                    </ul>
-                    <p class="child-note">The text color is inherited from the parent card, while <span class="accent">this span</span> overrides only its own color.</p>
-                </article>
+            <h3>VideoGames 2026</h3>
+              <div class="recuadro">
+            <ul>
+                <li>
+                 ARK: Survival Evolved
+                <ol>
+                  <li class="important">Helena Walker</li>
+                  <li>Santiago Da Costa</li>
+                  <li>Mei Yin Li</li>
+                  <li>Edmund Rockwell</li>
+                </ol>
+                <li>Call of Duty: Black Ops 6</li>
+                <li>Elden Ring</li>
+                <li>Starfield</li>
+            </ul>
             </div>
         </section>
     </main>

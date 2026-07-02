@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>20 - Pseudo-classes</title>
+<link rel="stylesheet" href="../../src/css/03-css.css">
+<style>
+body .pseudo-demo {
+padding: 1rem;
+margin: 1rem auto;
+border-radius: 12px;
+background: rgba(160, 80, 255, 0.12);
+border: 1px solid rgba(160, 80, 255, 0.2);
+transition: all 0.3s ease;
+}
+
+body .pseudo-demo:hover {
+background: rgba(160, 80, 255, 0.25);
+border-color: #a050ff;
+transform: scale(1.02);
+box-shadow: 0 0 15px rgba(160, 80, 255, 0.3);
+}
+
+body .pseudo-demo:active {
+background: rgba(160, 80, 255, 0.4);
+transform: scale(0.98);
+}
+
+body .link-demo {
+color: #7a2acc;
+text-decoration: none;
+padding: 0.3rem 0.8rem;
+border-radius: 8px;
+transition: all 0.3s ease;
+display: inline-block;
+margin: 0.5rem;
+}
+
+body .link-demo:link {
+color: #7a2acc;
+}
+
+body .link-demo:visited {
+color: #c090ff;
+}
+
+body .link-demo:hover {
+color: #a050ff;
+background: rgba(160, 80, 255, 0.12);
+}
+
+body .link-demo:active {
+color: #ffffff;
+background: rgba(160, 80, 255, 0.4);
+}
+
+body .focus-demo {
+background: rgba(160, 80, 255, 0.1);
+border: 2px solid rgba(160, 80, 255, 0.2);
+border-radius: 10px;
+padding: 0.8rem 1rem;
+font-size: 1rem;
+width: 100%;
+max-width: 400px;
+transition: all 0.3s ease;
+}
+
+body .focus-demo:focus {
+outline: none;
+border-color: #a050ff;
+box-shadow: 0 0 12px rgba(160, 80, 255, 0.4);
+background: rgba(160, 80, 255, 0.15);
+}
+
+body .focus-demo:focus::placeholder {
+color: rgba(160, 80, 255, 0.5);
+}
+
+body .list-first li:first-child {
+color: #a050ff;
+font-weight: 700;
+border-left: 3px solid #a050ff;
+padding-left: 10px;
+}
+
+body .list-last li:last-child {
+color: #7a2acc;
+font-weight: 700;
+border-left: 3px solid #7a2acc;
+padding-left: 10px;
+}
+
+body .list-nth li:nth-child(odd) {
+background: rgba(160, 80, 255, 0.08);
+border-radius: 8px;
+padding: 4px 10px;
+}
+
+body .list-nth li:nth-child(3) {
+color: #a050ff;
+font-weight: 700;
+}
+
+body .btn-check {
+padding: 0.6rem 1.5rem;
+border-radius: 10px;
+border: 2px solid #a050ff;
+background: transparent;
+cursor: pointer;
+transition: all 0.3s ease;
+font-size: 1rem;
+}
+
+body .btn-check:hover {
+background: rgba(160, 80, 255, 0.15);
+}
+
+body .btn-check:disabled {
+opacity: 0.4;
+cursor: not-allowed;
+border-color: #888;
+}
+
+body .empty-demo:empty {
+display: block;
+height: 40px;
+background: rgba(160, 80, 255, 0.1);
+border: 2px dashed #a050ff;
+border-radius: 10px;
+}
+
+body .not-demo {
+padding: 0.5rem 1rem;
+border-radius: 8px;
+margin: 0.3rem;
+display: inline-block;
+}
+
+body .not-demo:not(.excluded) {
+background: rgba(160, 80, 255, 0.15);
+border: 1px solid #a050ff;
+}
+
+body .not-demo.excluded {
+background: rgba(255, 80, 80, 0.15);
+border: 1px solid #ff5050;
+text-decoration: line-through;
+}
+</style>
+</head>
+<body class="lesson-page">
+<a href="indexcss.html" class="btn-home" aria-label="Volver al índice de CSS">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+</a>
+<main>
+<header>
+<h1>20 - Pseudo-classes</h1>
+<h2>A pseudo-class selects elements in a special state, like hover, focus, or first-child.</h2>
+<ul>
+<li>:hover / :active</li>
+<li>:link / :visited</li>
+<li>:focus</li>
+<li>:first-child / :last-child / :nth-child()</li>
+<li>:disabled</li>
+<li>:empty</li>
+<li>:not()</li>
+</ul>
+</header>
+<section>
+<div class="recuadro">
+<h3>:hover y :active</h3>
+<div class="pseudo-demo">Pasa el cursor sobre este elemento (hover) y haz clic (active)</div>
+
+<h3>:link, :visited, :hover, :active</h3>
+<div>
+<a href="#link1" class="link-demo">Enlace 1</a>
+<a href="#link2" class="link-demo">Enlace 2</a>
+<a href="#link3" class="link-demo">Enlace 3</a>
+</div>
+
+<h3>:focus</h3>
+<input type="text" class="focus-demo" placeholder="Haz clic aqui para ver :focus">
+
+<h3>:first-child / :last-child / :nth-child()</h3>
+<div style="display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center;">
+<div>
+<p style="color:#a050ff; font-weight:600;">:first-child</p>
+<ul class="list-first">
+<li>Primero (morado)</li>
+<li>Segundo</li>
+<li>Tercero</li>
+</ul>
+</div>
+<div>
+<p style="color:#7a2acc; font-weight:600;">:last-child</p>
+<ul class="list-last">
+<li>Primero</li>
+<li>Segundo</li>
+<li>Tercero (morado oscuro)</li>
+</ul>
+</div>
+<div>
+<p style="color:#a050ff; font-weight:600;">:nth-child(odd) y (3)</p>
+<ul class="list-nth">
+<li>Impar (fondo)</li>
+<li>Par</li>
+<li>Tercero (destacado)</li>
+<li>Impar (fondo)</li>
+</ul>
+</div>
+</div>
+
+<h3>:disabled</h3>
+<button class="btn-check">Boton activo</button>
+<button class="btn-check" disabled>Boton deshabilitado</button>
+
+<h3>:empty</h3>
+<p>El recuadro de abajo esta vacio y tiene estilo por :empty:</p>
+<div class="empty-demo"></div>
+
+<h3>:not()</h3>
+<div>
+<span class="not-demo">Incluido</span>
+<span class="not-demo">Incluido</span>
+<span class="not-demo excluded">Excluido</span>
+<span class="not-demo">Incluido</span>
+</div>
+</div>
+</section>
+</main>
+</body>
+</html>

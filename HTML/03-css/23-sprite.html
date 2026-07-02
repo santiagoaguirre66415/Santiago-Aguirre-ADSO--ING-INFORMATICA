@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>23 - Sprite</title>
+<link rel="stylesheet" href="../../src/css/03-css.css">
+<style>
+div#sprite {
+background: url(../../src/imgs/anim-sprite.png);
+height: 256px;
+margin: 1rem auto;
+width: 256px;
+}
+
+div#sprite.sp1 { background-position: calc(-256px * 0) 0; }
+div#sprite.sp2 { background-position: calc(-256px * 1) 0; }
+div#sprite.sp3 { background-position: calc(-256px * 2) 0; }
+div#sprite.sp4 { background-position: calc(-256px * 3) 0; }
+div#sprite.sp5 { background-position: calc(-256px * 4) 0; }
+div#sprite.sp6 { background-position: calc(-256px * 5) 0; }
+
+div#luchador {
+background: url(../../src/imgs/luchador-sprite.png);
+background-size: 720px 1118px;
+height: 280px;
+margin: 1rem auto;
+width: 180px;
+image-rendering: pixelated;
+}
+
+div#luchador.lf01 { background-position: 0 0; }
+div#luchador.lf02 { background-position: -180px 0; }
+div#luchador.lf03 { background-position: -360px 0; }
+div#luchador.lf04 { background-position: -540px 0; }
+div#luchador.lf05 { background-position: 0 -280px; }
+div#luchador.lf06 { background-position: -180px -280px; }
+div#luchador.lf07 { background-position: -360px -280px; }
+div#luchador.lf08 { background-position: -540px -280px; }
+div#luchador.lf09 { background-position: 0 -560px; }
+div#luchador.lf10 { background-position: -180px -560px; }
+div#luchador.lf11 { background-position: -360px -560px; }
+div#luchador.lf12 { background-position: -540px -560px; }
+div#luchador.lf13 { background-position: 0 -840px; }
+div#luchador.lf14 { background-position: -180px -840px; }
+div#luchador.lf15 { background-position: -360px -840px; }
+div#luchador.lf16 { background-position: -540px -840px; }
+</style>
+</head>
+<body class="lesson-page">
+<a href="indexcss.html" class="btn-home" aria-label="Volver al índice de CSS">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+</a>
+<main>
+<header>
+<h1>23 - Sprite</h1>
+<h2>This way we can include CSS within the style tag, it is very useful when you only have an html document.</h2>
+</header>
+<section>
+<div class="recuadro">
+<h3>Walk Cycle (anim-sprite.png)</h3>
+<div id="sprite" class="sp1"></div>
+<h3>Luchador (luchador-sprite.png - 4x4)</h3>
+<div id="luchador" class="lf01"></div>
+</div>
+</section>
+</main>
+<script>
+const sprite = document.getElementById('sprite');
+const numSprite = 6;
+let count = 1;
+setInterval(() => {
+sprite.className = '';
+sprite.classList.add('sp' + count);
+if(count === numSprite) count = 1;
+else count++;
+}, 80);
+
+const luchador = document.getElementById('luchador');
+const numLucha = 16;
+let countL = 1;
+setInterval(() => {
+luchador.className = '';
+luchador.classList.add('lf' + countL.toString().padStart(2, '0'));
+if(countL === numLucha) countL = 1;
+else countL++;
+}, 120);
+</script>
+</body>
+</html>

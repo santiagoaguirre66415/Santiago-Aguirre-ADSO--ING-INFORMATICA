@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15 - Positioning: Static, Relative, Absolute, Fixed, Sticky</title>
+    <link rel="stylesheet" href="../../src/css/03-css.css">
+    <style>
+        body .demo-wrap {
+            max-width: 1100px;
+            margin: 2rem auto;
+            background: rgba(160, 80, 255, 0.08);
+            border-radius: 1.5rem;
+            padding: 2rem;
+        }
+        body .demo-wrap header {
+            margin-bottom: 2rem;
+        }
+        body .demo-wrap h1 {
+            color: #4a1a7a !important;
+            border-left: 6px solid #a050ff;
+            padding-left: 1rem;
+            text-align: left;
+            font-family: inherit;
+            font-size: 2rem;
+        }
+        body .demo-wrap h2 {
+            color: #5a3a7a;
+            font-size: 1.1rem;
+            margin: 0.3rem 0;
+        }
+        body .demo-wrap p {
+            color: #5a4a6a;
+        }
+        body .demo-wrap section {
+            background: none !important;
+            color: inherit !important;
+            border-radius: 0 !important;
+            padding: 0 !important;
+        }
+        body .demo-container {
+            border: 2px dashed #a050ff;
+            background: rgba(160, 80, 255, 0.12);
+            padding: 1rem;
+            margin-bottom: 2.5rem;
+            border-radius: 1rem;
+            position: relative;
+        }
+        body .demo-title {
+            font-weight: bold;
+            background: #e8dff5;
+            color: #3a1a5a;
+            display: inline-block;
+            padding: 0.2rem 1rem;
+            border-radius: 20px;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        body .caja {
+            padding: 0.75rem 1rem;
+            margin: 0.5rem;
+            border-radius: 12px;
+            font-weight: 500;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            display: inline-block;
+            color: white !important;
+        }
+        body .caja1 { background-color: #a050ff; }
+        body .caja2 { background-color: #c080ff; }
+        body .caja3 { background-color: #7030c0; }
+        body .caja4 { background-color: #d090ff; color: #2a0a4a !important; }
+        body .note {
+            background: rgba(160, 80, 255, 0.2);
+            color: #3a1a5a;
+            padding: 0.5rem 1rem;
+            border-radius: 12px;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+        body .sticky-container {
+            height: 200px;
+            overflow-y: auto;
+            border: 2px solid #d0b0e8;
+            border-radius: 12px;
+            background: #f5f0fa;
+            margin-top: 1rem;
+            padding: 0.5rem;
+        }
+        body .sticky-box {
+            background: #a050ff;
+            color: white !important;
+            padding: 0.75rem;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+        body .long-content {
+            background: #7a3aaa;
+            color: white !important;
+            padding: 0.5rem;
+            border-radius: 8px;
+            margin: 0.5rem 0;
+        }
+        body .relative-parent {
+            position: relative;
+            background: rgba(160, 80, 255, 0.15);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            margin: 1rem 0;
+            min-height: 140px;
+        }
+        body .absolute-child {
+            position: absolute;
+            bottom: 10px;
+            right: 20px;
+            background: #a050ff;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        body .fixed-demo {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #4a1a7a;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        hr {
+            margin: 2rem 0;
+            border-color: rgba(160, 80, 255, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <a href="indexcss.html" class="btn-home" aria-label="Volver al índice de CSS">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </a>
+
+    <div class="demo-wrap">
+        <header>
+            <h1>Posicionamiento en CSS</h1>
+            <h2>Normal (static) · Relative · Absolute · Fixed · Sticky</h2>
+            <p>Cada elemento se posiciona segun el flujo normal o se desplaza fuera de el.</p>
+        </header>
+
+        <section>
+            <div class="demo-container">
+                <div class="demo-title">1. POSITION: STATIC (default)</div>
+                <div class="caja caja1">Caja 1 - Static</div>
+                <div class="caja caja2">Caja 2 - Static</div>
+                <div class="caja caja3">Caja 3 - Static</div>
+                <div class="note">Flujo normal. top/left/right/bottom no tienen efecto.</div>
+            </div>
+
+            <div class="demo-container">
+                <div class="demo-title">2. POSITION: RELATIVE</div>
+                <div class="caja caja1">Caja 1 (sin desplazar)</div>
+                <div class="caja caja2" style="position: relative; top: 15px; left: 20px;">Caja 2 - top:15px; left:20px</div>
+                <div class="caja caja3">Caja 3 - no afectada</div>
+                <div class="note">Se desplaza respecto a su posicion original. El hueco se reserva.</div>
+            </div>
+
+            <div class="demo-container">
+                <div class="demo-title">3. POSITION: ABSOLUTE</div>
+                <div class="relative-parent">
+                    <p style="margin:0 0 10px 0;">Contenedor con position: relative</p>
+                    <div class="caja caja1" style="width: auto;">Elemento normal</div>
+                    <div class="absolute-child">ABSOLUTE</div>
+                </div>
+                <div class="note">Se posiciona respecto al ancestro con position diferente de static. Sale del flujo.</div>
+            </div>
+
+            <div class="demo-container">
+                <div class="demo-title">4. POSITION: FIXED</div>
+                <div class="caja caja4">Haz scroll - el elemento fixed (abajo der) no se mueve.</div>
+                <div class="note">Se posiciona respecto al viewport. No se mueve al hacer scroll.</div>
+            </div>
+
+            <div class="demo-container">
+                <div class="demo-title">5. POSITION: STICKY</div>
+                <div class="sticky-container">
+                    <div class="sticky-box">STICKY - pegado arriba (top:0)</div>
+                    <div class="long-content">Contenido 1 - Sigue scrolleando</div>
+                    <div class="long-content">Contenido 2 - El sticky se mantiene</div>
+                    <div class="long-content">Contenido 3 - Hasta salir del contenedor</div>
+                    <div class="long-content">Contenido 4 - Util para headers</div>
+                    <div class="long-content">Contenido 5 - Se va al final del contenedor</div>
+                </div>
+                <div class="note">Hibrido: relativo hasta que el scroll lo activa, luego se fija.</div>
+            </div>
+
+            <hr>
+            <div class="note" style="background: rgba(160, 80, 255, 0.3);">
+                <strong>Resumen:</strong><br>
+                - static: flujo normal<br>
+                - relative: se mueve, deja hueco<br>
+                - absolute: respecto al padre, sale del flujo<br>
+                - fixed: respecto al viewport, fijo<br>
+                - sticky: relativo + fijo segun scroll
+            </div>
+        </section>
+    </div>
+
+    <div class="fixed-demo">FIXED</div>
+</body>
+</html>

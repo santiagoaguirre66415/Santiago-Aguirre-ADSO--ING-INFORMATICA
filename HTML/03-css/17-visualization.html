@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>17 - Visualization</title>
+    <link rel="stylesheet" href="../../src/css/03-css.css">
+    <style>
+        body .vis-section {
+            margin: 1.2rem 0;
+            padding: 1.2rem;
+            background: rgba(160, 80, 255, 0.08) !important;
+            border: 1px solid rgba(160, 80, 255, 0.15);
+            border-radius: 14px;
+        }
+        body .vis-section h3 {
+            color: #a050ff;
+            font-size: 1rem;
+            margin-bottom: 0.8rem;
+        }
+
+        body .display-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            justify-content: center;
+        }
+        body .d-item {
+            padding: 0.8rem;
+            border-radius: 10px;
+            text-align: center;
+            flex: 1;
+            min-width: 130px;
+            font-size: 0.9rem;
+        }
+        body .d-block {
+            background: rgba(160, 80, 255, 0.25);
+            border: 1px solid rgba(160, 80, 255, 0.3);
+        }
+        body .d-block div {
+            background: rgba(160, 80, 255, 0.3);
+            margin-top: 0.3rem;
+            padding: 0.2rem;
+            border-radius: 4px;
+        }
+        body .d-inline span {
+            background: rgba(160, 80, 255, 0.12);
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+            margin: 0.1rem;
+        }
+        body .d-none {
+            background: rgba(255, 80, 80, 0.2);
+            border: 1px solid rgba(255, 80, 80, 0.3);
+        }
+        body .hidden-target {
+            display: none;
+        }
+
+        body .flex-row {
+            display: flex;
+            gap: 0.5rem;
+            background: rgba(160, 80, 255, 0.12);
+            padding: 0.8rem;
+            border-radius: 10px;
+            margin-top: 0.5rem;
+        }
+        body .flex-row div {
+            background: #a050ff;
+            color: #fff;
+            padding: 0.4rem;
+            border-radius: 6px;
+            text-align: center;
+            flex: 1;
+            font-weight: 600;
+        }
+
+        body .grid-demo {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.4rem;
+            background: rgba(160, 80, 255, 0.12);
+            padding: 0.8rem;
+            border-radius: 10px;
+            margin-top: 0.5rem;
+        }
+        body .grid-demo div {
+            background: #a050ff;
+            color: #fff;
+            padding: 0.4rem;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        body .vis-row {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        body .vis-box {
+            width: 100px;
+            height: 80px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+        body .vis-show {
+            background: rgba(160, 80, 255, 0.35);
+            border: 1px solid #a050ff;
+        }
+        body .vis-hide {
+            background: rgba(255, 80, 80, 0.3);
+            border: 1px solid #ff5050;
+            visibility: hidden;
+        }
+
+        body .overflow-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+        body .of-box {
+            width: 150px;
+            height: 100px;
+            background: rgba(160, 80, 255, 0.1);
+            border: 1px solid rgba(160, 80, 255, 0.2);
+            border-radius: 10px;
+            padding: 0.4rem;
+            font-size: 0.8rem;
+        }
+        body .long {
+            width: 180px;
+            height: 80px;
+            background: rgba(160, 80, 255, 0.12);
+            border-radius: 4px;
+            margin-top: 0.3rem;
+            padding: 0.3rem;
+        }
+        body .of-vis { overflow: visible; }
+        body .of-hid { overflow: hidden; }
+        body .of-scr { overflow: scroll; }
+        body .of-auto { overflow: auto; }
+
+        body .z-stack {
+            position: relative;
+            height: 180px;
+            margin: 0.8rem 0;
+        }
+        body .z-el {
+            position: absolute;
+            width: 100px;
+            height: 80px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: #fff;
+        }
+        body .z1 { background: #ff6b35; top: 5px; left: 20px; z-index: 1; }
+        body .z2 { background: #a050ff; top: 40px; left: 55px; z-index: 2; }
+        body .z3 { background: #7a2acc; top: 75px; left: 90px; z-index: 3; }
+        body .z0 { background: #4a1a7a; top: 110px; left: 125px; z-index: 0; }
+
+        body .note {
+            background: rgba(160, 80, 255, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.82rem;
+            border-left: 3px solid #a050ff;
+            margin-top: 0.6rem;
+        }
+        body code {
+            background: rgba(160, 80, 255, 0.1);
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            font-family: monospace;
+            color: #7a2acc;
+        }
+    </style>
+</head>
+<body class="lesson-page">
+    <a href="indexcss.html" class="btn-home" aria-label="Volver al índice de CSS">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </a>
+    <main>
+        <header>
+            <h1>17 - Visualization</h1>
+            <h2>display · visibility · overflow · z-index</h2>
+        </header>
+        <section>
+            <div class="vis-section">
+                <h3>display: block | inline | none | flex | grid</h3>
+                <div class="display-grid">
+                    <div class="d-item d-block">
+                        <strong>block</strong>
+                        <div>Ocupa todo el ancho</div>
+                        <div>Salta de linea</div>
+                    </div>
+                    <div class="d-item d-inline">
+                        <strong>inline</strong>
+                        <div><span>Uno</span> <span>Dos</span> <span>Tres</span></div>
+                    </div>
+                    <div class="d-item d-none">
+                        <strong>none</strong>
+                        <div>(oculto) <span class="hidden-target">invisible</span></div>
+                    </div>
+                </div>
+                <div class="flex-row">
+                    <div>Flex 1</div><div>Flex 2</div><div>Flex 3</div>
+                </div>
+                <div class="grid-demo">
+                    <div>Grid A</div><div>Grid B</div><div>Grid C</div><div>Grid D</div>
+                </div>
+                <div class="note"><code>block</code> ocupa todo el ancho · <code>inline</code> se ajusta al contenido · <code>none</code> oculta y elimina espacio · <code>flex/grid</code> layouts modernos.</div>
+            </div>
+
+            <div class="vis-section">
+                <h3>visibility: visible | hidden</h3>
+                <div class="vis-row">
+                    <div class="vis-box vis-show">visible</div>
+                    <div class="vis-box vis-hide">hidden</div>
+                    <div style="color:#7a5a9a; font-size:0.85rem;">El elemento hidden <strong>ocupa espacio</strong> pero no se ve (diferencia con display:none).</div>
+                </div>
+            </div>
+
+            <div class="vis-section">
+                <h3>overflow: visible | hidden | scroll | auto</h3>
+                <div class="overflow-row">
+                    <div class="of-box of-vis"><strong>visible</strong><div class="long">Contenido que se desborda y se ve fuera del contenedor.</div></div>
+                    <div class="of-box of-hid"><strong>hidden</strong><div class="long">El desbordamiento se recorta, no se ve lo que sale.</div></div>
+                    <div class="of-box of-scr"><strong>scroll</strong><div class="long">Barras siempre visibles (horizontal y vertical).</div></div>
+                    <div class="of-box of-auto"><strong>auto</strong><div class="long">Barras solo cuando hay desbordamiento.</div></div>
+                </div>
+            </div>
+
+            <div class="vis-section">
+                <h3>z-index: control de apilamiento</h3>
+                <div class="z-stack">
+                    <div class="z-el z1">z:1</div>
+                    <div class="z-el z2">z:2</div>
+                    <div class="z-el z3">z:3</div>
+                    <div class="z-el z0">z:0</div>
+                </div>
+                <div class="note">Mayor <code>z-index</code> = mas arriba. Solo funciona en elementos posicionados (relative, absolute, fixed, sticky).</div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

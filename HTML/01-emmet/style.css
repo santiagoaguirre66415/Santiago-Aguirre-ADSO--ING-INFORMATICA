@@ -1,0 +1,351 @@
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Space+Mono:wght@400;700&display=swap');
+
+        body {
+            margin: 0;
+            padding: 40px 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            background-color: #0a0f0f;
+            background: linear-gradient(135deg, #0f1a0f 0%, #050a05 100%);
+            color: #e0ffe0;
+            font-family: 'Space Mono', monospace;
+            position: relative;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                repeating-linear-gradient(45deg, 
+                    rgba(0, 255, 65, 0.03) 0px, 
+                    rgba(0, 255, 65, 0.03) 2px,
+                    transparent 2px, 
+                    transparent 8px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        body::after {
+            content: "EMMET";
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            font-size: 8rem;
+            font-weight: 700;
+            color: rgba(0, 255, 65, 0.03);
+            letter-spacing: 10px;
+            transform: rotate(-15deg);
+            pointer-events: none;
+            z-index: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        main {
+            text-align: center;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            width: 90%;
+            max-width: 1200px;
+            position: relative;
+        }
+
+        h1 {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(3rem, 10vw, 5rem);
+            margin: 0;
+            color: #00ff41;
+            font-weight: 700;
+            letter-spacing: -2px;
+            text-transform: uppercase;
+            text-shadow: 
+                4px 4px 0 #0a3a0a,
+                8px 8px 20px rgba(0, 255, 65, 0.3);
+            line-height: 1;
+            transform: skew(-5deg);
+            text-align: center;
+            width: 100%;
+        }
+
+        .description {
+            font-size: 1.1rem;
+            color: #a0f0a0;
+            margin: -10px 0 20px 0;
+            max-width: 800px;
+            background: rgba(0, 255, 65, 0.1);
+            padding: 20px 30px;
+            border-radius: 30px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(0, 255, 65, 0.3);
+            font-family: 'Inter', sans-serif;
+            text-align: center;
+            width: 100%;
+        }
+
+        .description p {
+            margin: 8px 0;
+            text-align: center;
+        }
+
+        .conceptos-basicos {
+            font-size: 2rem;
+            color: #00ff41;
+            margin: 20px 0;
+            text-transform: uppercase;
+            border-bottom: 2px solid #00ff41;
+            padding-bottom: 10px;
+            width: 100%;
+            font-family: 'Inter', sans-serif;
+            text-align: center;
+        }
+
+        .logo-emmet {
+            border-radius: 20px;
+            border: none;
+            filter: drop-shadow(0 0 20px rgba(0, 255, 65, 0.5));
+            background: linear-gradient(145deg, #1a2a1a, #0a150a);
+            padding: 10px;
+            width: 150px;
+            height: 150px;
+            transform: rotate(0deg);
+            transition: transform 0.3s ease;
+            margin: 0 auto 10px auto;
+            display: block;
+        }
+
+        .logo-emmet:hover {
+            transform: rotate(5deg) scale(1.05);
+        }
+
+        /* Grid de tarjetas */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            width: 100%;
+        }
+
+        .card {
+            background: #0f140f;
+            border: 2px solid #1f3a1f;
+            border-radius: 8px;
+            padding: 0;
+            width: 100%;
+            text-align: center;
+            box-shadow: 
+                8px 8px 0 #0a1a0a,
+                0 0 0 2px #00ff41 inset,
+                0 0 20px rgba(0, 255, 65, 0.2);
+            transition: all 0.2s ease;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translate(-5px, -5px);
+            box-shadow: 
+                12px 12px 0 #0a1a0a,
+                0 0 0 2px #00ff41 inset,
+                0 0 30px rgba(0, 255, 65, 0.4);
+        }
+
+        .card h2 {
+            margin: 0;
+            font-size: 1.3rem;
+            background: #1a2a1a;
+            padding: 15px 20px;
+            border-bottom: 2px solid #2a4a2a;
+            font-family: 'Inter', sans-serif;
+            color: #00ff41;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        .card-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .card .descripcion {
+            margin: 0 0 15px 0;
+            font-weight: 300;
+            color: #b0d0b0;
+            font-size: 0.9rem;
+            background: rgba(0, 255, 65, 0.05);
+            padding: 12px;
+            border-left: 4px solid #00ff41;
+            border-right: 4px solid #00ff41;
+            font-family: 'Space Mono', monospace;
+            line-height: 1.5;
+            text-align: center;
+            width: 100%;
+            border-radius: 4px;
+        }
+
+        .card .example-label {
+            color: #00ff41;
+            font-weight: 700;
+            margin: 15px 0 8px 0;
+            display: block;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            border-bottom: 1px dashed #2a4a2a;
+            padding-bottom: 4px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .card .example-box {
+            background-color: #0a120a;
+            border: 2px solid #1f3a1f;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 8px 0;
+            color: #7fff7f;
+            font-size: 0.9rem;
+            font-family: 'Space Mono', monospace;
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8);
+            position: relative;
+            white-space: pre-wrap;
+            word-break: break-all;
+            text-align: center;
+            width: 100%;
+        }
+
+        .card .example-box::before {
+            content: "❯_";
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #0f140f;
+            padding: 0 12px;
+            color: #00ff41;
+            font-size: 0.7rem;
+            border-left: 2px solid #00ff41;
+            border-right: 2px solid #00ff41;
+            white-space: nowrap;
+        }
+
+        .resultado-flex {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            width: 100%;
+            align-items: center;
+        }
+
+        .card-footer {
+            background: #1a2a1a;
+            padding: 10px 20px;
+            border-top: 2px solid #2a4a2a;
+            font-size: 0.8rem;
+            color: #7fa07f;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            text-align: center;
+        }
+
+        .card-footer span {
+            text-align: center;
+        }
+
+        .card-footer span:last-child {
+            color: #00ff41;
+            font-weight: 700;
+        }
+
+        .bt-home {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            width: 55px;
+            height: 55px;
+            border: 2px solid #00ff41;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0, 255, 65, 0.05);
+            backdrop-filter: blur(5px);
+            z-index: 10;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+        }
+
+        .bt-home:hover {
+            background: #00ff41;
+            transform: scale(1.1) rotate(180deg);
+            box-shadow: 0 0 40px rgba(0, 255, 65, 0.8);
+        }
+
+        .bt-home:hover svg {
+            fill: #0a120a;
+        }
+
+        .bt-home svg {
+            width: 30px;
+            height: 30px;
+            fill: #00ff41;
+            transition: fill 0.3s ease;
+        }
+
+        .top-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #00ff41, #00ff41, transparent);
+            z-index: 20;
+            box-shadow: 0 0 20px #00ff41;
+        }
+
+        /* Estilos específicos para los números de las tarjetas */
+        .card h2::before {
+            content: "⚡";
+            color: #00ff41;
+            font-size: 1.5rem;
+            margin-right: 8px;
+        }
+
+        /* Ajuste para la primera tarjeta que tenía errores en el ejemplo */
+        .card .example-box code {
+            background: rgba(0, 255, 65, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #00ff41;
+        }
+
+        /* Estilo especial para el challenge */
+        .challenge-box {
+            background-color: #0a1a0a;
+            border: 3px solid #00ff41;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8), 0 0 10px #00ff41;
+            }
+            50% {
+                box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8), 0 0 25px #00ff41;
+            }
+            100% {
+                box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8), 0 0 10px #00ff41;
+            }
+        }
+   

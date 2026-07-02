@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>16 - Float</title>
+    <link rel="stylesheet" href="../../src/css/03-css.css">
+    <style>
+        main img {
+            width: auto !important;
+            border: none !important;
+            border-radius: 12px !important;
+            background: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        .float-card {
+            background: rgba(160, 80, 255, 0.1);
+            border: 1px solid rgba(160, 80, 255, 0.2);
+            border-radius: 14px;
+            padding: 1.2rem;
+            margin: 1.5rem auto;
+            max-width: 600px;
+            overflow: auto;
+        }
+        .float-card h3 {
+            color: #a050ff;
+            font-size: 1rem;
+            margin-bottom: 0.8rem;
+        }
+        .img-left {
+            float: left;
+            margin: 0 1rem 0.5rem 0;
+            width: 100px;
+            border-radius: 12px;
+        }
+        .img-right {
+            float: right;
+            margin: 0 0 0.5rem 1rem;
+            width: 100px;
+            border-radius: 12px;
+        }
+        .float-text {
+            color: #5a3a7a;
+            line-height: 1.7;
+            text-align: justify;
+            font-size: 0.92rem;
+        }
+        .clearfix::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        .label {
+            display: inline-block;
+            background: rgba(160, 80, 255, 0.12);
+            color: #a050ff;
+            font-family: monospace;
+            font-size: 0.8rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body class="lesson-page">
+    <a href="indexcss.html" class="btn-home" aria-label="Volver al índice de CSS">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </a>
+    <main>
+        <header>
+            <h1>16 - Float</h1>
+            <h2>Pushes an element to the left or right, letting text wrap around it.</h2>
+            <ul>
+                <li>float: left</li>
+                <li>float: right</li>
+                <li>clear: both (clearfix)</li>
+            </ul>
+        </header>
+        <section style="background: none !important; padding: 0 !important;">
+            <div class="float-card">
+                <h3>float: left</h3>
+                <span class="label">float: left; margin-right: 1rem</span>
+                <img src="../../src/imgs/ryno.png" alt="Ryno" class="img-left">
+                <div class="float-text">
+                    Ryno es un personaje del universo de Donkey Kong, conocido por su actitud tranquila y su gran resistencia. En esta demostracion, la imagen flota a la izquierda y el texto la rodea naturalmente gracias a la propiedad float.
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="float-card">
+                <h3>float: right</h3>
+                <span class="label">float: right; margin-left: 1rem</span>
+                <img src="../../src/imgs/ryno.png" alt="Ryno" class="img-right">
+                <div class="float-text">
+                    Cuando la imagen flota a la derecha, el texto se acomoda a su izquierda. Esta tecnica es ideal para disenos de revista o articulos donde se quiere destacar una imagen en el margen derecho sin romper el flujo del texto.
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="float-card">
+                <h3>Multiples floats</h3>
+                <span class="label">Dos imagenes flotando</span>
+                <img src="../../src/imgs/ryno.png" alt="Ryno" class="img-left">
+                <img src="../../src/imgs/ryno.png" alt="Ryno" class="img-right">
+                <div class="float-text">
+                    Aqui conviven dos imagenes con float opuesto. Ambas flotan, una a cada lado, y el texto se distribuye entre ellas. Sin el clearfix, el contenedor padre perderia su altura y el layout se romperia.
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

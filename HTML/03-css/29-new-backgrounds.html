@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>29 - New - Backgrounds</title>
+    <link rel="stylesheet" href="../../src/css/03-css.css">
+    <style>
+        div.multiples {
+            background: url(../../src/imgs/bg3.png),
+                        url(../../src/imgs/bg2.png),
+                        url(../../src/imgs/bg1.png);
+            height: 453px;
+        }
+        section div {
+            border: 4px solid rgba(160, 80, 255, 0.4);
+            border-radius: 10px;
+            margin: 1rem auto;
+            height: 200px;
+            width: 320px;
+        }
+        
+        div.gradient1 {
+            background: linear-gradient(to top, #1a0a3a, #a080f0);
+        }
+        div.gradient2 {
+            background: linear-gradient(45deg, #a080f0, #4a1a7a);
+        }
+        div.gradient3 {
+            background: linear-gradient(to bottom,
+                    #a050ff 50%,
+                    #4a1a7a 50%,
+                    #4a1a7a 75%,
+                    #2a0d4a 75%);
+        }
+        div.gradient4 {
+            background: linear-gradient(to right, #c090ff 50%, #4a1a7a 50%);
+            background-size: 37px;
+        }
+        div.gradient5 {
+            background: radial-gradient(circle, #c090ff, #2a0d4a);
+        }
+        div.gradient6 {
+            background: radial-gradient(circle, #fff 20%,
+            #a050ff 20%,
+            #a050ff 40%,
+            #fff 40%,
+            #fff 60%,
+            #a050ff 60%,
+            #a050ff 80%,
+            #fff 80%);
+        }
+        h4.clip1 {
+            font-size: 8rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #a050ff 0%, #4a1a7a 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        h4.clip2 {
+            font-size: 8rem;
+            font-weight: bold; 
+            background: url(../../src/imgs/bgfire.jpg) no-repeat center;
+            background-size: cover;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        div.mask {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(to top, #a050ff, #c090ff);
+            margin: 2rem auto;
+            -webkit-mask-image: radial-gradient(circle at 50% 50%, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 60%);
+            mask-image: radial-gradient(circle at 50% 50%, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 60%);
+        }
+        .comic {
+            width: 320px;
+            height: 200px;
+            background: conic-gradient(#a050ff, #4a1a7a, #a050ff, #c090ff, #4a1a7a, #a050ff);
+            border-radius: 4%;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body class="lesson-page">
+    <main class="document-page"> 
+        <a href="indexcss.html" class="btn-home" aria-label="Volver al índice de CSS">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </a>
+        <header>
+            <h1>29 - New - Backgrounds</h1>
+            <h2>New Features (multiple, gradients, clip).</h2>
+        </header>
+        <section>
+            <h3>Bgs Multiple:</h3>
+            <div class="multiples"></div>
+            <h3>Bgs Gradients:</h3>
+            <h5>linear-gradient(to direction, color1, color2)</h5>
+            <div class="gradient1"></div>
+            <h5>linear-gradient(degrees, color1, color2)</h5>
+            <div class="gradient2"></div>
+            <h5>Purple Flag</h5>
+            <div class="gradient3"></div>
+            <h5>Vertical Lines</h5>
+            <div class="gradient4"></div>
+            <h5>radial-gradient(shape, color1, color2)</h5>
+            <div class="gradient5"></div>
+            <h5>BullsEye</h5>
+            <div class="gradient6"></div>
+            <h5>conic-gradient(color1, color2)</h5>
+            <div class="comic"></div>
+            <h3>Bgs Clip:</h3>
+            <h4 class="clip1">ADSO</h4>
+            <h4 class="clip2">FIRE</h4>
+            <h3>Bg Mask</h3>
+            <div class="mask"></div>
+            
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>25 - New Selectors | ADSO 3314566</title>
+<link rel="stylesheet" href="../../src/css/03-css.css">
+<style>
+.demo-card {
+background: rgba(0, 100, 60, 0.2);
+border: 1px solid rgba(0, 214, 143, 0.2);
+border-radius: 12px;
+padding: 1.2rem;
+margin: 1rem auto;
+transition: all 0.3s ease;
+}
+
+.demo-card:hover {
+border-color: #00d68f;
+box-shadow: 0 0 15px rgba(0, 214, 143, 0.3);
+transform: translateY(-2px);
+}
+
+.demo-card h3 {
+color: #00d68f;
+margin-bottom: 0.8rem;
+font-size: 1.1rem;
+}
+
+.demo-card p, .demo-card li {
+color: #c0e8d0;
+font-size: 0.95rem;
+line-height: 1.6;
+}
+
+.tag {
+display: inline-block;
+padding: 0.3rem 0.8rem;
+margin: 0.3rem;
+border-radius: 8px;
+font-size: 0.85rem;
+font-weight: 600;
+transition: all 0.3s ease;
+}
+
+.tag-purple {
+background: rgba(160, 80, 255, 0.25);
+border: 1px solid rgba(160, 80, 255, 0.4);
+color: #c8a0ff;
+}
+
+.tag-purple:hover {
+background: rgba(160, 80, 255, 0.4);
+}
+
+.tag-teal {
+background: rgba(0, 214, 143, 0.2);
+border: 1px solid rgba(0, 214, 143, 0.3);
+color: #80e0c0;
+}
+
+.tag-teal:hover {
+background: rgba(0, 214, 143, 0.35);
+}
+
+.tag-blue {
+background: rgba(26, 143, 212, 0.2);
+border: 1px solid rgba(26, 143, 212, 0.3);
+color: #80c8ff;
+}
+
+.tag-blue:hover {
+background: rgba(26, 143, 212, 0.35);
+}
+
+.is-demo :is(h4, h5, h6) {
+color: #c8a0ff;
+border-left: 3px solid #a050ff;
+padding-left: 10px;
+margin: 0.5rem 0;
+}
+
+.where-demo :where(.featured, .highlight, .spotlight) {
+background: rgba(0, 214, 143, 0.15);
+border-radius: 8px;
+padding: 0.4rem 0.8rem;
+margin: 0.3rem 0;
+}
+
+.has-demo:has(.special-child) {
+background: rgba(160, 80, 255, 0.15);
+border: 2px solid #a050ff;
+}
+
+.input-fv:focus-visible {
+outline: 3px solid #00d68f;
+outline-offset: 3px;
+border-radius: 6px;
+}
+
+::selection {
+background: #a050ff;
+color: #ffffff;
+}
+
+.target-section:target {
+background: rgba(0, 214, 143, 0.2);
+border: 2px solid #00d68f;
+animation: pulse-border 1.5s ease 3;
+}
+
+@keyframes pulse-border {
+0%, 100% { border-color: #00d68f; }
+50% { border-color: #a050ff; }
+}
+</style>
+</head>
+<body class="lesson-page">
+    <a href="indexcss.html" class="btn-home" aria-label="Volver al índice de CSS">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </a>
+<main>
+<header>
+<h1>25 - New Selectors</h1>
+<h2>Modern CSS selectors like :is(), :where(), :has(), and more.</h2>
+<ul>
+<li>:is() — group selectors with forgiving matching</li>
+<li>:where() — like :is() but zero specificity</li>
+<li>:has() — parent selector based on children</li>
+<li>:focus-visible — focus only on keyboard interaction</li>
+<li>::selection — style selected text</li>
+<li>:target — target the current URL fragment</li>
+</ul>
+</header>
+<section>
+<div class="recuadro">
+
+<div class="demo-card is-demo">
+<h3>:is() — Group Selector</h3>
+<p>Matches any of the selectors in the list. All headings below share the same style via <code>:is(h4, h5, h6)</code>:</p>
+<h4>Heading 4 (targeted by :is)</h4>
+<h5>Heading 5 (targeted by :is)</h5>
+<h6>Heading 6 (targeted by :is)</h6>
+</div>
+
+<div class="demo-card where-demo">
+<h3>:where() — Zero Specificity</h3>
+<p>Like <code>:is()</code> but never adds to specificity. All items below match <code>:where(.featured, .highlight, .spotlight)</code>:</p>
+<div class="featured">Featured item</div>
+<div class="highlight">Highlighted item</div>
+<div class="spotlight">Spotlight item</div>
+</div>
+
+<div class="demo-card has-demo">
+<h3>:has() — The Parent Selector</h3>
+<p>This card has a green border because it contains an element with <code>class="special-child"</code>:</p>
+<div class="special-child" style="color:#80e0c0; font-weight:600;">✨ I am the special child!</div>
+</div>
+
+<div class="demo-card">
+<h3>:focus-visible</h3>
+<p>Click or tab into the input below. The outline only appears on keyboard focus, not mouse click:</p>
+<input type="text" class="input-fv" placeholder="Tab here with keyboard" style="background:rgba(0,100,60,0.2); border:1px solid rgba(0,214,143,0.3); border-radius:8px; padding:0.6rem 1rem; color:#E0FFF0; width:100%; max-width:300px;">
+</div>
+
+<div class="demo-card">
+<h3>::selection</h3>
+<p>Select (highlight) this text to see the custom selection color. The background turns purple and text turns white.</p>
+</div>
+
+<div class="demo-card target-section" id="target-demo">
+<h3>:target</h3>
+<p>This section is the target! It has <code>id="target-demo"</code>. Click the link below to see the <code>:target</code> pseudo-class in action:</p>
+<a href="#target-demo" class="tag tag-purple">🔗 Target this section</a>
+</div>
+
+</div>
+</section>
+</main>
+</body>
+</html>

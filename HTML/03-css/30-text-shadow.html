@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>30 - Text Shadow</title>
+<link rel="stylesheet" href="../../src/css/03-css.css">
+<style>
+body .ts-demo {
+font-size: 3rem;
+font-weight: 700;
+margin: 1.5rem 0;
+text-align: center;
+}
+
+body .ts-simple {
+text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+body .ts-glow {
+text-shadow: 0 0 20px #a050ff, 0 0 40px #a050ff;
+color: #c090ff;
+}
+
+body .ts-multi {
+text-shadow: 2px 2px 0 #4a1a7a, 4px 4px 0 #7a2acc, 6px 6px 0 #a050ff;
+}
+
+body .ts-3d {
+text-shadow: 1px 1px 0 #4a1a7a, 2px 2px 0 #4a1a7a, 3px 3px 0 #4a1a7a, 4px 4px 0 #4a1a7a;
+color: #c090ff;
+}
+
+body .ts-neon {
+text-shadow: 0 0 5px #a050ff, 0 0 10px #a050ff, 0 0 20px #a050ff, 0 0 40px #7a2acc;
+color: #fff;
+}
+</style>
+</head>
+<body class="lesson-page">
+<a href="indexcss.html" class="btn-home" aria-label="Volver al índice de CSS">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+</a>
+<main>
+<header>
+<h1>30 - Text Shadow</h1>
+<h2>text-shadow adds shadow effects to text: offset-x offset-y blur-radius color.</h2>
+</header>
+<section>
+<div class="recuadro">
+<h3>text-shadow: 2px 2px 4px rgba(0,0,0,0.3)</h3>
+<div class="ts-demo ts-simple">Sombra Simple</div>
+
+<h3>text-shadow: glow effect</h3>
+<div class="ts-demo ts-glow">Resplandor Morado</div>
+
+<h3>text-shadow: multiple shadows</h3>
+<div class="ts-demo ts-multi">Multiples Sombras</div>
+
+<h3>text-shadow: 3D effect</h3>
+<div class="ts-demo ts-3d">Efecto 3D</div>
+
+<h3>text-shadow: neon effect</h3>
+<div class="ts-demo ts-neon">Neon Purple</div>
+</div>
+</section>
+</main>
+</body>
+</html>

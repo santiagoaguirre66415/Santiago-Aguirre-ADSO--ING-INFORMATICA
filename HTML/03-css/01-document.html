@@ -4,13 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>03 - Attribute Style</title>
+    <title>01 - Document Style</title>
     <link rel="stylesheet" href="../../src/css/03-css.css">
     <style>
         div.adso {
-            margin: 4rem auto;
-            font-size: 3.6rem;
+            background: linear-gradient(135deg, #ff6b35, #f7c59f 50%, #ff6b35);
+            border-radius: 1.2rem;
+            color: #2a0a00;
+            padding: 1.2rem;
+            margin: 2rem auto;
+            font-size: 3.2rem;
+            font-family: "Roboto Slab", serif;
             text-align: center;
+            box-shadow: 0 8px 30px rgba(255, 107, 53, 0.3);
+            max-width: 500px;
         }
     </style>
 </head>
@@ -20,16 +27,16 @@
             <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
     </a>
-    <main>
-        <header>
-            <h1>03 - Attribute Style</h1>
-            <h2>This way we can include CSS within the style attribute in the html tag, it is the least recommended way.</h2>
-        </header>
-        <section>
-            <div class="adso" style="background: linear-gradient(45deg, #ff8c00, #ff0080); color: white; padding: 1.2rem; border-radius: 1rem; font-size: 2.8rem; box-shadow: 0 0 20px rgba(255, 140, 0, 0.3);">
-                INLINE CSS
-            </div>
-        </section>
-    </main>
+<main>
+<header>
+<h1>01 - Document Style</h1>
+<h2>CSS within the &lt;style&gt; tag in the document head. Useful for single-page projects.</h2>
+</header>
+<section>
+<div class="adso">
+ADSO 3314566
+</div>
+</section>
+</main>
 </body>
 </html>

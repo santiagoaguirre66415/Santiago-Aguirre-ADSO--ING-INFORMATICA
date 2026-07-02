@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>26 - Border Radius</title>
+<link rel="stylesheet" href="../../src/css/03-css.css">
+<style>
+body .circulo {
+width: 120px;
+height: 120px;
+background-color: rgba(160, 80, 255, 0.35);
+border-radius: 50%;
+text-align: center;
+margin: 0 auto;
+}
+
+body .caja-irregular {
+width: 120px;
+height: 120px;
+background-color: rgba(160, 80, 255, 0.35);
+border-radius: 20px 50px 10px 40px;
+margin: 0 auto;
+}
+
+body .ejemplos-container {
+display: flex;
+flex-wrap: wrap;
+gap: 2rem;
+justify-content: center;
+align-items: flex-start;
+margin-top: 2rem;
+padding-top: 2rem;
+}
+
+body .ejemplo-item {
+text-align: center;
+border-radius: 12px;
+padding: 1rem;
+width: 180px;
+background: rgba(160, 80, 255, 0.08);
+border: 1px solid rgba(160, 80, 255, 0.15);
+}
+
+body .ejemplo-item p {
+margin-top: 0.5rem;
+font-weight: bold;
+font-family: monospace;
+font-size: 0.82rem;
+}
+
+body .ejemplo-pildora {
+width: 120px;
+height: 60px;
+background-color: rgba(160, 80, 255, 0.35);
+border-radius: 60px / 30px;
+margin: 0 auto;
+}
+
+body .ejemplo-esquina-unica {
+width: 120px;
+height: 120px;
+background-color: rgba(160, 80, 255, 0.35);
+border-radius: 40px 0 0 0;
+margin: 0 auto;
+}
+</style>
+</head>
+<body class="lesson-page">
+<a href="indexcss.html" class="btn-home" aria-label="Volver al índice de CSS">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+</a>
+<main>
+<header>
+<h1>26 - Border Radius</h1>
+<h2>Property defines the radius of the element's corners.</h2>
+</header>
+<section>
+<div class="recuadro">
+<h3 style="margin-top: 0;">Ejemplos de radios</h3>
+<div class="ejemplos-container">
+<div class="ejemplo-item">
+<div class="circulo"></div>
+<p>border-radius: 50%<br>(circulo)</p>
+</div>
+<div class="ejemplo-item">
+<div class="caja-irregular"></div>
+<p>border-radius: 20px 50px 10px 40px</p>
+</div>
+<div class="ejemplo-item">
+<div class="ejemplo-pildora"></div>
+<p>border-radius: 60px / 30px<br>ovalo</p>
+</div>
+<div class="ejemplo-item">
+<div class="ejemplo-esquina-unica"></div>
+<p>border-radius: 40px 0 0 0<br>(solo arriba-izq)</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+</body>
+</html>

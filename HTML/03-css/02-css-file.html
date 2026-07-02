@@ -6,22 +6,30 @@
     <title>02 - CSS File</title>
     <link rel="stylesheet" href="../../src/css/03-css.css">
     <style>
-        section button {
-            border-radius: 0.4rem;
-            border: none;
+        main section {
+            text-align: center;
+        }
+        div.card-demo {
+            display: inline-block;
+            background: linear-gradient(160deg, #a050ff, #6030c0);
+            border-radius: 1.2rem;
+            color: #E0FFF0;
+            padding: 2rem 3rem;
+            margin: 1rem auto;
+            font-size: 2.2rem;
+            font-family: "Roboto Slab", serif;
+            box-shadow: 0 8px 30px rgba(160, 80, 255, 0.3);
+            border: 1px solid rgba(160, 80, 255, 0.4);
+        }
+        p.note {
+            color: #a0e0c0;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            background: rgba(0, 100, 60, 0.2);
             padding: 0.8rem 1.2rem;
-            font-size: 1.2rem;
-            display: flex;
-            margin: 4rem auto;
-        }
-        /*Specificity: 0,1,2*/
-        section button.green {
-            background-color:#5fbb5f;
-
-        }
-        /*Specificity: 0,1,1*/
-        section .green {
-            background-color: #e44ea8;
+            border-radius: 10px;
+            border-left: 3px solid #00d68f;
+            display: inline-block;
         }
     </style>
 </head>
@@ -34,12 +42,17 @@
     <main>
         <header>
             <h1>02 - CSS File</h1>
-            <h2>This way we can include CSS from an external file; highly recommended for multi-page projects.</h2>
+            <h2>This page uses styles from an external CSS file (<code>../../src/css/03-css.css</code>) plus embedded styles in the &lt;style&gt; tag.</h2>
         </header>
         <section>
-            <button class="green">
-                Press Me
-            </button>
+            <div class="recuadro">
+                <div class="card-demo">
+                    ADSO 3314566
+                </div>
+                <p class="note">
+                    El gradiente morado viene del &lt;style&gt; interno, mientras que los estilos base (tipografia, colores de fondo, boton de navegacion) provienen del archivo CSS externo.
+                </p>
+            </div>
         </section>
     </main>
 </body>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12 - Colors with Alpha</title>
+    <link rel="stylesheet" href="../../src/css/03-css.css">
+    <style>
+        figure.imagen-alpha {
+            background: url(../../src/imgs/image.png) no-repeat center/contain;
+            border: 4px solid #fff;
+            margin-block: 4rem;
+            height: 730px;
+            width: 730px;
+            position: relative;
+            justify-self: center;
+            div {
+                height:calc(730px/3);
+                &.box1 {
+                    background-color: rgba(255, 255, 255, 0.580);
+                }
+                &.box2 {
+                    background-color: #FFF5;
+                }
+                &.box3 {
+                    background-color: #FFF3;
+                }
+            }
+        }
+        
+    </style>
+</head>
+
+<body class="lesson-page">
+    <a href="indexcss.html" class="btn-home" aria-label="Volver al índice de CSS">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </a>
+    
+    <main>
+        <header>
+            <h1>12 - Colors with Alpha</h1>
+            <h2>The fourth alpha channel allows you to apply opacity or transparency to the color.</h2>
+        </header>
+        <section>
+            <h3>Example Transparent colors</h3>
+            <div class="recuadro">
+            <figure class="imagen-alpha">
+                <div class="box1"></div>
+                <div class="box2"></div>
+                <div class="box3"></div>
+                </div>
+            </figure>
+        </section>
+    </main>
+</body>
+
+</html>
